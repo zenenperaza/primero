@@ -19,6 +19,7 @@ data:
   read:
     ## Default:
     - config/locales/%{locale}.yml
+    - config/locales/completions/%{locale}.yml
     ## More files:
     # - config/locales/**/*.%{locale}.yml
     ## Another gem (replace %#= with %=):

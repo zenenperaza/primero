@@ -47,6 +47,7 @@ debug.html
 dev-node.json
 docker/production.env
 docker/local.env
+docker/certs/
 encrypted_file
 jmeter/*.csv
 jmeter/*.log

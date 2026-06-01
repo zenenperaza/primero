@@ -1,0 +1,476 @@
+es:
+  errors:
+    models:
+      case_relationship:
+        relationship_type: El tipo de relación no es válido.
+        not_linked_to_self: Un caso no puede vincularse consigo mismo.
+      lookup:
+        default_options_blank: Las opciones predeterminadas no pueden estar vacías.
+      user:
+        code_of_conduct: Código de conducta no válido. Asegúrese de aceptar la versión más reciente del código de conducta.
+        user_name_uniqueness: Ya existe un usuario con ese nombre. Ingrese uno diferente.
+        data_processing_consent_provided_on: Debe otorgar su consentimiento para el procesamiento de datos.
+      child:
+        identified_by_unique: Ya existe un registro identificado para este usuario.
+        identified_by_exists: Usuario no válido. El usuario no existe.
+      system_setting:
+        allocated_space_integer: El campo debe ser un número entero.
+        allocated_space_warning_greater_than_hard_limit: La advertencia de espacio asignado supera el espacio máximo asignado.
+    api:
+      user:
+        disposable_email: Parece que este es un proveedor de correo electrónico temporal. Para proteger las cuentas, utilice su correo electrónico personal o laboral.
+        captcha_service_unavailable: El servicio de verificación no está disponible en este momento. Intente enviar nuevamente; actualizar la página suele ayudar si se interrumpió la conexión.
+        invalid_captcha: No pudimos verificarle en este momento. Intente enviar nuevamente; actualizar la página suele ayudar si se interrumpió la conexión.
+    attachments:
+      file_upload_unsuccessful: No se pudo cargar el archivo. El sistema alcanzó el límite de almacenamiento de documentos. Contacte al administrador del sistema.
+  exports:
+    incident_recorder_xls:
+      gender:
+        male: H
+        female: M
+        both: H y M
+      age_group:
+        age: Edad
+        61_older: 61 años o más
+        unknown: Desconocida
+      age_type:
+        both: Persona adulta y menor de edad
+        adult: Persona adulta
+        minor: Menor de edad
+        unknown: Desconocido
+      number_primary_perpetrators:
+        more_than_three: Más de 3
+      'yes': Sí
+      'no': 'No'
+      service_referral:
+        undecided: Sin decidir
+  managed_reports:
+    filter_by:
+      age: Edad
+      service_implemented: Servicio implementado
+      has_late_verified_violations: ¿Verificación tardía?
+    distribution_users_role_report:
+      distribution_users_role:
+        overall: General
+      name: Distribución de usuarios por rol
+      description: Muestra el número de usuarios por rol, desglosado por grupo de usuarios. Esto permite ver la cantidad de personal supervisor y administrativo por trabajador de casos.
+      reports:
+        distribution_users_role: Distribución de usuarios por rol
+      sub_reports:
+        distribution_users_role: Distribución de usuarios por rol
+    individual_children:
+      description: ''
+    services_report:
+      name: Servicios
+    followups_report:
+      name: Seguimientos
+    reporting_locations_report:
+      name: Ubicación de reporte
+      reports:
+        description: ''
+    ghn_report:
+      description: ''
+      sub_reports:
+        verified_violations_by_perpetrator: Información verificada - Violaciones por perpetrador
+        verified_violations_by_region: Información verificada - Violaciones por región
+        unverified_violations_by_perpetrator: Información no verificada - Violaciones por perpetrador
+        unverified_violations_by_region: Información no verificada - Violaciones por región
+        late_verification_violations_by_region: Verificación tardía - Violaciones por región
+        late_verification_violations_by_perpetrator: Verificación tardía - Violaciones por perpetrador
+        deprivation_liberty: Privación de libertad
+        group_multiple_violations: Víctimas grupales afectadas por múltiples violaciones
+    violations:
+      description: ''
+      reports:
+        deprivation_liberty: Privación de libertad
+    gbv_statistics:
+      description: ''
+      sub_reports:
+        total: Nuevos incidentes de VG reportados
+        gbv_sexual_violence: Estadísticas de sobrevivientes - Número de incidentes de violencia sexual reportados
+        gbv_previous_incidents: Número de incidentes reportados por sobrevivientes con incidentes previos de VG
+        gbv_sexual_violence_type: Estadísticas de incidentes - Tipo de VG
+        incident_timeofday: Estadísticas de incidentes - Hora del día del incidente
+        elapsed_reporting_time: Estadísticas de incidentes - Tiempo transcurrido entre el incidente y la fecha del reporte
+        elapsed_reporting_time_rape: Estadísticas de incidentes - Incidentes de violación y tiempo transcurrido entre el incidente y la fecha del reporte
+        elapsed_reporting_time_rape_health_referral: Estadísticas de incidentes - Incidentes de violación y tiempo transcurrido (servicio de salud o referencia proporcionada)
+        incident_location_type: Estadísticas de incidentes - Ubicación del incidente
+        number_of_perpetrators: Estadísticas de perpetradores - Número de perpetradores principales
+        perpetrator_relationship: Estadísticas de perpetradores - Relación entre el presunto perpetrador y la persona sobreviviente
+        perpetrator_age_group: Estadísticas de perpetradores - Grupo de edad de los presuntos perpetradores principales
+        perpetrator_occupation: Estadísticas de perpetradores - Ocupación del presunto perpetrador principal
+        age: Estadísticas de sobrevivientes - Edad de las personas sobrevivientes
+        sex: Estadísticas de sobrevivientes - Sexo de las personas sobrevivientes
+        marital_status: Estadísticas de sobrevivientes - Estado civil de las personas sobrevivientes
+        displacement_status: Estadísticas de sobrevivientes - Estado de desplazamiento al momento del reporte
+        displacement_incident: Estadísticas de sobrevivientes - Etapa del desplazamiento al momento del incidente
+        gbv_case_context: Estadísticas de incidentes - Contexto del caso
+        incidents_first_point_of_contact: Estadísticas de referencias - Número de incidentes para los cuales su organización es el primer punto de contacto
+        incidents_from_other_service_provider: Estadísticas de referencias - Incidentes referidos desde otros proveedores de servicios
+        number_of_services_provided: Estadísticas de referencias - Número de servicios proporcionados para los incidentes
+        number_of_services_provided_other: Estadísticas de referencias - Nuevas referencias de incidentes a otros proveedores de servicios
+        vulnerable_populations: Estadísticas de sobrevivientes - Poblaciones vulnerables
+      services_provided:
+        service_safehouse_referral: Referencia a casa segura o refugio seguro
+        service_medical_referral: Referencia a servicios de salud o médicos
+        service_psycho_referral: Servicios psicosociales o de orientación
+        service_legal_referral: Servicios de asistencia legal
+        service_police_referral: Servicios policiales u otro tipo de seguridad
+        service_livelihoods_referral: Servicios de medios de vida
+        service_protection_referral: Servicios de protección infantil
+      survivors_age:
+        age_0_11: De 0 a 11 años
+        age_12_17: De 12 a 17 años
+        age_10_19: Adolescente (10 a 19 años)
+        age_50_more: Persona mayor (50 años o más)
+        children_17_younger: Niños, niñas y adolescentes de 17 años o menos
+        adults_18_older: Personas adultas de 18 años o más
+      header_title:
+        sex: Sexo de las personas sobrevivientes
+        age: Edad de las personas sobrevivientes
+        marital_status: Estado civil
+        displacement_status: Estado de desplazamiento al momento del reporte
+        displacement_incident: Etapa del desplazamiento al momento del incidente
+        gbv_sexual_violence_type: Tipo de violencia del incidente
+        incident_timeofday: Hora del día en que ocurrió el incidente
+        incident_location_type: Tipo de lugar donde ocurrió el incidente
+        perpetrator_relationship: Relación del presunto perpetrador con la persona sobreviviente
+        perpetrator_age_group: Grupo de edad del presunto perpetrador
+        perpetrator_occupation: Ocupación principal del presunto perpetrador
+    violence_type_report:
+      description: ''
+    case_management_kpis_report:
+      name: KPI de gestión de casos
+      description: Realiza seguimiento de indicadores clave del desempeño de la gestión de casos de protección infantil, incluido el porcentaje de referencias realizadas por diferentes actores, la ubicación de reporte y el sexo para las preocupaciones de protección seleccionadas, y el porcentaje de casos para cada motivo de cierre.
+      reports:
+        source_identification_referral: Fuente de identificación o referencia
+        protection_concerns_reporting_location: Preocupaciones de protección por ubicación de reporte
+        reasons_for_closure: Motivo del cierre
+      sub_reports:
+        case_source_identification_referral: Fuente de identificación o referencia
+        case_protection_concerns_reporting_location: Preocupaciones de protección por ubicación de reporte
+        percentage_case_reasons_for_closure: Motivo del cierre
+      filter_options:
+        registration_date: Fecha de registro
+    case_management_kpis_service_referrals_report:
+      name: KPI de gestión de casos - Referencias a servicios
+      description: Número de casos referidos a servicios apropiados, por tipo de servicio multisectorial.
+      reports:
+        referred_appropriate_service: Casos referidos a servicios apropiados
+      sub_reports:
+        case_referred_appropriate_service: Casos referidos a servicios apropiados
+      filter_options:
+        registration_date: Fecha de registro
+        service_implemented_day_time: Fecha de implementación del servicio
+  unused_fields_report:
+    label: Reporte de campos no utilizados
+    generated_message: Generado periódicamente. Última generación el %{date}.
+    field_id: ID del campo
+    field_name: Nombre del campo
+    form_name: Nombre del formulario
+    cases_where_filled: Casos donde se completó
+    prevalence: Prevalencia
+    created_at: Creado el
+    not_found_error: No se encontró el reporte de campos no utilizados. Intente nuevamente más tarde.
+  module_yes: Sí
+  module_no: 'No'
+  children:
+    selectable_date_options:
+      reassigned_transferred_on: Fecha de asignación o transferencia
+  devise:
+    mailers:
+      greeting: Hola %{recipient},
+      email_changed:
+        body: Le informamos que su correo electrónico cambió a %{email}.
+      password_change:
+        body: Le informamos que su contraseña cambió.
+  already_linked: Registro ya vinculado
+  sync:
+    error:
+      attachment: No se pudieron cargar los archivos adjuntos para %{record_type}. Contacte al equipo de soporte.
+  actions:
+    attribute: Atribuir
+  buttons:
+    attribute: Atribuir
+    next: Siguiente
+  case:
+    select_module: Módulo (tipo de caso)
+  cases:
+    child_functioning:
+      difficulty_seeing_without_glasses: Dificultad para ver sin anteojos
+      difficulty_hearing_without_hearing_aid: Dificultad para oír sin audífono
+      difficulty_comparative: Dificultad para caminar en comparación con otros niños y niñas
+      mobility_difficulty_comparative_100m: Dificultad de movilidad comparativa para 100 m
+      mobility_difficulty_comparative_500m: Dificultad de movilidad comparativa para 500 m
+    attribute:
+      name: Nombre
+      email: Correo electrónico
+      success: Atribución actualizada correctamente
+      title: Atribuir
+      text: Seleccione el usuario que identificó este caso. Si su sistema permite el autorregistro, este usuario podrá acceder al caso como «Mi caso» cuando inicie sesión.
+      confirm_title: Confirmación de atribución
+      confirm_text: ¿Confirma que desea atribuir este caso al usuario con los siguientes datos?
+      identified_by_placeholder: Escriba al menos dos caracteres para buscar un nombre de usuario.
+    filter_by:
+      assigned_to_me: Casos asignados a mí
+  case_relationships:
+    search_for: Buscar %{record_type}
+    add_new:
+      label: Agregar
+      disabled: Guarde el caso. Luego podrá editarlo y vincularlo con otros casos.
+  change_logs:
+    no_more: Fin de la bitácora de cambios
+  access_logs:
+    no_more: Fin de la bitácora de accesos
+  configurations:
+    unavailable_server: El servidor no está disponible temporalmente. Espere mientras la página se recarga.
+  dashboard:
+    identified: Identificados
+    recently_assigned_to_me: Asignados recientemente a mí
+  email_notification:
+    maximum_attachments_space_subject: Se alcanzó el límite de almacenamiento de archivos adjuntos para %{system_name}
+    maximum_attachments_space_body: Se le contacta como administrador designado del sistema %{system_name}. El sistema alcanzó la capacidad máxima de almacenamiento de archivos adjuntos de %{maximum_attachments_space}. Los usuarios no podrán cargar más documentos. Puede ampliar la capacidad de almacenamiento del sistema actualizando su servicio a través del equipo de Primero.
+    maximum_attachments_space_warning_subject: Se aproxima el límite de almacenamiento de archivos adjuntos para %{system_name}
+    maximum_attachments_space_warning_body: Se le contacta como administrador designado del sistema %{system_name}. El sistema se aproxima a la capacidad máxima de almacenamiento de archivos adjuntos de %{maximum_attachments_space}. Los usuarios no podrán cargar más documentos cuando se alcance el límite. Puede ampliar la capacidad de almacenamiento del sistema actualizando su servicio a través del equipo de Primero.
+  error_page:
+    not_authorized:
+      code: 403
+    not_found:
+      code: 404
+  fields:
+    document:
+      content_type: Tipo de contenido del documento
+  flags:
+    update_flag: Actualizar indicadores
+    flag_updated: Indicador actualizado correctamente
+  forms:
+    export_unused_fields: Exportar campos no utilizados
+    record_types:
+      case_relationships: Casos vinculados
+  home:
+    aeb: العربية (التونسية)
+    ar-SY: العربية (السورية)
+    hi-IN: Hindi
+    mr: Marathi
+    pt-AO: Português (Angola)
+    pt-MZ: Português (Moçambique)
+  incident:
+    violation:
+      types:
+        deprivation_liberty: Privación de libertad
+  location:
+    base_types:
+      zip_code: Código postal
+  logger:
+    actions:
+      action_plan_approved: '%{approval_label} aprobado'
+      action_plan_requested: Aprobación solicitada para %{approval_label}
+      action_plan_rejected: '%{approval_label} rechazado'
+      assessment_approved: '%{approval_label} aprobada'
+      assessment_rejected: '%{approval_label} rechazada'
+      assessment_requested: Aprobación solicitada para %{approval_label}
+      assign_to: Listar usuarios para asignar el registro
+      attach: Agregar archivo adjunto
+      approve_form:
+        action_plan: Formulario del plan de acción
+        bia: Formulario BIA
+        case_plan: Formulario del plan de caso
+        closure: Formulario de cierre
+        'false': Rechazando
+        gbv_closure: Formulario de cierre de VG
+        'true': Aprobando
+      by_user: por el usuario
+      case_plan_approved: '%{approval_label} aprobado'
+      case_plan_rejected: '%{approval_label} rechazado'
+      case_plan_requested: Aprobación solicitada para %{approval_label}
+      closure_approved: '%{approval_label} aprobado'
+      closure_rejected: '%{approval_label} rechazado'
+      closure_requested: Aprobación solicitada para %{approval_label}
+      consent_count: Cantidad de consentimientos
+      copy: Copiando
+      create_subform: Creando subformulario
+      detach: Eliminar archivo adjunto
+      edit: Editar
+      enable_disable_record: Habilitar o deshabilitar
+      failed_login: Inicio de sesión fallido
+      flag_records: Marcando
+      gbv_closure_approved: '%{approval_label} aprobado'
+      gbv_closure_requested: Aprobación solicitada para %{approval_label}
+      gbv_closure_rejected: '%{approval_label} rechazado'
+      graph_data: Consultando datos del gráfico
+      hide_name:
+        protect: Ocultar nombre
+        view: Ver nombre
+      index: Listando registros
+      lookups_for_field: Listas de opciones para el campo
+      mark_for_mobile:
+        'false': Desmarcar para dispositivos móviles
+        'true': Marcar para dispositivos móviles
+      match_record: Comparando registro
+      permitted_field_list: Lista de campos permitidos
+      quick_view: Consultando vista rápida
+      reassign: Asignar
+      record_state:
+        'false': Deshabilitar
+        'true': Habilitar
+      referral: Referir
+      refer_accepted: Aceptar referencia
+      refer_done: Marcar referencia como completada
+      refer_rejected: Rechazar referencia
+      refer_revoke: Revocar referencia
+      refer_to: Buscar destinatario de la referencia
+      relinquish_referral: Renunciar a la referencia completada
+      reopen_case: Reabriendo
+      request_approval:
+        action_plan: Aprobación solicitada para %{approval_label}
+        bia: Aprobación solicitada para %{approval_label}
+        case_plan: Aprobación solicitada para %{approval_label}
+        closure: Aprobación solicitada para %{approval_label}
+        gbv_closure: Aprobación solicitada para %{approval_label}
+      request_transfer: Enviando solicitud de transferencia
+      request_transfer_view: Consultando solicitud de transferencia
+      save_subform: Guardando subformulario
+      search: Búsqueda en la API
+      services_section_from_case: Agregar servicio al caso desde la lista
+      traces: Consultar localizaciones
+      transfer_accepted: Aceptar transferencia
+      transfer_rejected: Rechazar transferencia
+      transfer_request: Solicitar transferencia
+      transfer_revoked: Revocar transferencia
+      transfer_status:
+        Accepted: Transferencia aceptada
+        Rejected: Transferencia rechazada
+      transfer_to: Listar usuarios para transferir el registro
+    resources:
+      activity_log: Bitácora de actividad
+      family: Familia
+  navigation:
+    my_case: Mi caso
+    phonetic_search:
+      tooltip_label: 'La búsqueda fonética está disponible para los siguientes campos de nombre:'
+    id_search:
+      help_text: La búsqueda exacta está disponible para los campos de ID
+      tooltip_label: 'La búsqueda exacta está disponible para los siguientes campos de ID:'
+  permissions:
+    resource:
+      case:
+        actions:
+          self_approve:
+            explanation: De forma predeterminada, los usuarios no pueden aprobar sus propios casos. Con este permiso, un usuario puede aprobar cualquier caso al que tenga acceso, incluso si es propietario del registro.
+            label: Aprobar mis propios casos
+          access_log:
+            explanation: El usuario puede consultar el historial de accesos de quienes no sean propietarios actuales del registro, incluidas las consultas y actualizaciones realizadas desde la creación del registro.
+            label: Bitácora de accesos
+          flag_update:
+            explanation: Permite al usuario actualizar cualquier indicador del registro, sin importar quién lo creó.
+            label: Actualizar indicador
+          view_case_relationships:
+            explanation: Permite al usuario consultar una lista de todos los casos vinculados al caso actual.
+            label: Ver casos vinculados
+          update_case_relationships:
+            explanation: Permite a un usuario que actualiza su caso buscar otro caso existente y vincularlo con el suyo. También permite desvincular ese segundo caso.
+            label: Vincular o desvincular otro caso
+          attribute:
+            explanation: Seleccione el usuario que identificó el caso. En algunos sistemas puede ser quien inició el ingreso de la persona beneficiaria a la gestión de casos. En sistemas que permiten el autorregistro, puede ser la propia persona beneficiaria.
+            label: Atribuir
+      dashboard:
+        actions:
+          action_needed_identified:
+            explanation: Muestra el número de casos identificados que aún no están abiertos ni reciben gestión de casos.
+            label: Acción necesaria - Casos identificados
+      incident:
+        actions:
+          access_log:
+            explanation: El usuario puede consultar el historial de accesos de quienes no sean propietarios actuales del registro, incluidas las consultas y actualizaciones realizadas desde la creación del registro.
+            label: Bitácora de accesos
+          flag_update:
+            explanation: Permite al usuario actualizar cualquier indicador del registro, sin importar quién lo creó.
+            label: Actualizar indicador
+      managed_report:
+        actions:
+          case_management_kpis_report:
+            label: KPI de gestión de casos
+            explanation: Realiza seguimiento de indicadores clave del desempeño de la gestión de casos de protección infantil, incluido el porcentaje de referencias realizadas por diferentes actores, la ubicación de reporte y el sexo para las preocupaciones de protección seleccionadas, y el porcentaje de casos para cada motivo de cierre.
+          case_management_kpis_service_referrals_report:
+            label: KPI de gestión de casos - Referencias a servicios
+            explanation: Número de casos referidos a servicios apropiados, por tipo de servicio multisectorial.
+          distribution_users_role_report:
+            label: Distribución de usuarios por rol
+            explanation: Muestra el número de usuarios por rol, desglosado por grupo de usuarios. Esto permite ver la cantidad de personal supervisor y administrativo por trabajador de casos.
+      registry_record:
+        actions:
+          access_log:
+            explanation: El usuario puede consultar el historial de accesos de quienes no sean propietarios actuales del registro, incluidas las consultas y actualizaciones realizadas desde la creación del registro.
+            label: Bitácora de accesos
+          flag_update:
+            explanation: Permite al usuario actualizar cualquier indicador del registro, sin importar quién lo creó.
+            label: Actualizar indicador
+      family:
+        actions:
+          access_log:
+            explanation: El usuario puede consultar los accesos al registro realizados por quienes no son propietarios.
+            label: Bitácora de accesos
+          flag_update:
+            explanation: Permite al usuario actualizar cualquier indicador del registro, sin importar quién lo creó.
+            label: Actualizar indicador
+      tracing_request:
+        actions:
+          access_log:
+            explanation: El usuario puede consultar el historial de accesos de quienes no sean propietarios actuales del registro, incluidas las consultas y actualizaciones realizadas desde la creación del registro.
+            label: Bitácora de accesos
+          flag_update:
+            explanation: Permite al usuario actualizar cualquier indicador del registro, sin importar quién lo creó.
+            label: Actualizar indicador
+      user:
+        actions:
+          disable_multiple:
+            explanation: Deshabilitar varios usuarios desde la lista de usuarios. Los usuarios deshabilitados ya no podrán acceder al sistema.
+            label: Deshabilitar varios usuarios
+  record_information:
+    identified_by: Identificado por
+  referral:
+    referral_authorization_label: Especifique el tipo de referencia
+  user:
+    last_access: Fecha del último inicio de sesión
+    last_case_viewed: Fecha de la última consulta de caso
+    last_case_updated: Fecha de la última modificación de caso
+    duplicate: ¿Este usuario es la segunda cuenta de una persona que necesita varias cuentas en el sistema debido a las limitaciones de roles de Primero?
+    self_registered: ¿Este usuario se creó mediante uno de los flujos de autorregistro?
+  users:
+    filters:
+      search: Buscar por nombre completo o nombre de usuario
+      date_last_login: Fecha del último inicio de sesión
+      date_last_case_view: Fecha de la última consulta de caso
+      date_last_case_updated: Fecha de la última modificación de caso
+    disable_text: ¿Confirma que desea deshabilitar estos usuarios? Ya no podrán iniciar sesión en el sistema.
+    disable_title: Deshabilitar usuarios
+    disable_selection_indicartor: '%{users_selected} usuario(s) seleccionado(s)'
+    disable_success: Primero está deshabilitando %{users_selected} usuario(s). La actualización puede tardar varios minutos.
+    selected_records: '%{select_records} usuario(s) seleccionado(s)'
+    selected_all_records: Seleccionar todos los %{total_records} usuarios que coincidan con esta consulta.
+  self_registration:
+    data_processing_consent_required: Debe otorgar su consentimiento para el procesamiento de datos.
+    locale: Idioma preferido
+    title: Registrarse
+    save: Registrarse
+    user_name_help_text: Este también será su nombre de usuario
+    success:
+      return_button: Volver al inicio de sesión
+      header: Verifique su correo electrónico
+      success: Cuenta de usuario creada correctamente.
+      text: "Gracias por registrarse. Estamos creando su cuenta de usuario y enviamos un correo electrónico a la dirección proporcionada.\n\nSeleccione el enlace de confirmación incluido en el correo electrónico para establecer la contraseña de su cuenta y continuar con el registro."
+  push_notifications_dialog:
+    body:
+      one: ¿Desea permitir que Primero le envíe notificaciones? Recuerde que continuará recibiendo notificaciones en este dispositivo %{count} día después de cerrar sesión. Esto no se recomienda para dispositivos compartidos.
+      other: ¿Desea permitir que Primero le envíe notificaciones? Recuerde que continuará recibiendo notificaciones en este dispositivo %{count} días después de cerrar sesión. Esto no se recomienda para dispositivos compartidos.
+  access_log:
+    label: Bitácora de accesos
+    show: 'Consultado por:'
+    update: 'Modificado por:'
+    no_more: Fin de la bitácora de accesos
+    filters:
+      access_users: Usuarios que accedieron
+      actions: Tipo de acceso
+      timestamp: Hora de acceso
+      show: Consultado
+      update: Modificado
