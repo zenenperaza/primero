@@ -18,6 +18,7 @@ I18n.available_locales = configured_locales
 I18n.default_locale = configured_default_locale
 
 load File.join(__dir__, 'translations_es.rb')
+load File.join(__dir__, 'ftr_solicitudes_localizacion.rb')
 
 puts 'Loading Venezuela states and municipalities'
 system_settings = SystemSettings.current
@@ -38,20 +39,39 @@ unless locations_importer.errors.empty?
   raise "Venezuela location import failed: #{locations_importer.errors.join('; ')}"
 end
 
-puts 'Configuring FTR roles, group and users'
+puts 'Configuring ASONACOP LRF agency, territorial groups, roles and users'
 cp_module = PrimeroModule.cp
-unicef = Agency.find_by!(agency_code: 'UNICEF')
+asonacop = Agency.create_or_update!(
+  unique_id: 'LRF',
+  agency_code: 'LRF',
+  name_en: 'ASONACOP',
+  name_es: 'ASONACOP',
+  description_en: 'Localization and Family Reunification Program',
+  description_es: 'Programa de Localización y Reunificación Familiar',
+  disabled: false,
+  exclude_agency_from_lookups: false
+)
 ftr_forms = FormSection.where(parent_form: 'tracing_request')
 ftr_group = UserGroup.create_or_update!(
   unique_id: 'usergroup-primero-ftr',
-  name: 'Primero FTR',
-  description: 'Solicitudes de Localización - Venezuela',
-  agency_unique_ids: ['UNICEF']
+  name: 'LRF Nacional',
+  description: 'Solicitudes de Localización - ASONACOP',
+  agency_unique_ids: [asonacop.unique_id]
 )
+territorial_groups = Location.where(admin_level: 1).order(:location_code).map do |state|
+  state_name = state.placename_es.presence || state.placename_en
+  UserGroup.create_or_update!(
+    unique_id: "usergroup-lrf-state-#{state.location_code.downcase}",
+    name: "LRF - #{state_name}",
+    description: "Equipo territorial LRF de #{state_name}",
+    agency_unique_ids: [asonacop.unique_id]
+  )
+end
 
 ftr_worker = Role.create_or_update!(
   unique_id: 'role-ftr-worker',
-  name: 'FTR Worker',
+  name: 'Monitor LRF',
+  description: 'Registra y gestiona sus propias solicitudes de localización',
   permissions: [
     Permission.new(
       resource: Permission::TRACING_REQUEST,
@@ -72,13 +92,15 @@ ftr_worker = Role.create_or_update!(
       actions: [Permission::READ, Permission::FIND_TRACING_MATCH]
     )
   ],
+  group_permission: Permission::SELF,
   modules: [cp_module],
   form_sections: ftr_forms
 )
 
 ftr_manager = Role.create_or_update!(
   unique_id: 'role-ftr-manager',
-  name: 'FTR Manager',
+  name: 'Coordinador LRF',
+  description: 'Supervisa las solicitudes de los grupos territoriales asignados',
   permissions: [
     Permission.new(resource: Permission::TRACING_REQUEST, actions: [Permission::MANAGE]),
     Permission.new(
@@ -101,8 +123,8 @@ ftr_manager = Role.create_or_update!(
 )
 
 [
-  ['primero_ftr', 'FTR Worker', ftr_worker, 'PRIMERO_FTR_WORKER'],
-  ['primero_mgr_ftr', 'FTR Manager', ftr_manager, 'PRIMERO_FTR_MANAGER']
+  ['primero_ftr', 'Monitor LRF', ftr_worker, 'PRIMERO_FTR_WORKER'],
+  ['primero_mgr_ftr', 'Coordinador LRF', ftr_manager, 'PRIMERO_FTR_MANAGER']
 ].each do |user_name, full_name, role, env_prefix|
   user = User.find_or_initialize_by(user_name:)
   if user.new_record?
@@ -117,7 +139,7 @@ ftr_manager = Role.create_or_update!(
   user.assign_attributes(
     'full_name' => full_name,
     'disabled' => false,
-    'agency_id' => unicef.id,
+    'agency_id' => asonacop.id,
     'role_id' => role.id,
     'user_groups' => [ftr_group],
     'locale' => 'es'
@@ -125,7 +147,13 @@ ftr_manager = Role.create_or_update!(
   user.save!
 end
 
+# Preserve locally created LRF users while moving the operational agency from
+# Primero's standard UNICEF seed to ASONACOP.
+User.joins(:role).where(roles: { unique_id: %w[role-ftr-worker role-ftr-manager] }).find_each do |user|
+  user.update!(agency_id: asonacop.id)
+end
+
 User.where(user_name: %w[admin primero]).update_all(locale: 'es')
 GenerateLocationFilesJob.perform_now
 
-puts "Loaded #{Location.count} Venezuela locations and configured #{ftr_group.name}"
+puts "Loaded #{Location.count} Venezuela locations and configured #{ftr_group.name} with #{territorial_groups.count} territorial groups"

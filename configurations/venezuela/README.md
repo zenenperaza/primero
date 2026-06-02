@@ -5,10 +5,14 @@ Esta configuración amplía los seeds CP incluidos en Primero v2:
 - habilita las Solicitudes de Localización (`tracing_request`);
 - carga Venezuela, 24 entidades con municipios y 335 municipios;
 - configura el nivel de reporte por estado;
-- crea los roles `FTR Worker` y `FTR Manager`;
-- usa el grupo `Primero FTR`;
+- crea la agencia operativa `ASONACOP` con código corto `LRF`;
+- crea los roles `Monitor LRF` y `Coordinador LRF`;
+- usa el grupo general `LRF Nacional` y crea un grupo territorial por estado;
 - crea los usuarios iniciales `primero_ftr` y `primero_mgr_ftr`;
-- carga traducciones españolas para los formularios y catálogos de Casos.
+- carga traducciones españolas para los formularios y catálogos de Casos;
+- amplía Solicitudes de Localización con admisión, personas vinculadas,
+  cuidado y reunificación, alertas, consentimientos, actuaciones, apoyos
+  entregados y documentos restringidos.
 
 La carga reemplaza todas las ubicaciones existentes. Antes de ejecutarla, crear
 un respaldo de PostgreSQL y agregar explícitamente las siguientes variables
@@ -43,6 +47,28 @@ Las traducciones de formularios y catálogos almacenados en base de datos están
 en `translations_es.rb`. El cargador venezolano las aplica después de los seeds
 estándar de Primero. Esto cubre secciones, campos visibles y listas utilizadas
 por Casos.
+
+## Flujo de Solicitudes de Localización
+
+Los formularios adicionales están definidos en
+`ftr_solicitudes_localizacion.rb`. La Solicitud de Localización se utiliza como
+puerta de entrada para admisión, búsqueda, consentimientos y reunificación. Si
+se identifican alertas de protección o atención prolongada, se debe crear o
+vincular un Caso para gestionar servicios, derivaciones y seguimientos.
+
+El archivo `ftr_solicitudes_localizacion_blueprint.md` documenta el mapeo
+funcional anonimizado utilizado para adaptar los formularios físicos.
+
+## Agencia, roles y grupos territoriales
+
+Los monitores deben usar el rol `Monitor LRF`, la agencia `ASONACOP` y el grupo
+territorial correspondiente, por ejemplo `LRF - Táchira`. Este rol gestiona
+solamente sus propias solicitudes.
+
+Los coordinadores deben usar el rol `Coordinador LRF`, la agencia `ASONACOP` y
+uno o varios grupos territoriales. Este rol permite supervisar las solicitudes
+de los grupos asignados. El grupo `LRF Nacional` queda disponible para cuentas
+con cobertura general.
 
 ## Datos geográficos
 

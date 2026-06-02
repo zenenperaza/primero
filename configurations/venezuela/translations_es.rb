@@ -19,6 +19,9 @@ def update_lookup_es(unique_id, name:, values:)
 end
 
 SECTION_NAMES_ES = {
+  'Record Owner' => 'Responsable del registro',
+  'Inquirer' => 'Solicitante',
+  'Tracing Request' => 'Solicitud de localización',
   'Record Information' => 'Información del registro',
   'Incident Details' => 'Detalles del incidente',
   'Summary' => 'Resumen',
@@ -305,7 +308,7 @@ FORM_GROUPS_ES = {
   'other_reportable_fields' => 'Otros campos de reporte'
 }.freeze
 
-FormSection.where(parent_form: 'case').find_each do |section|
+FormSection.where(parent_form: %w[case tracing_request]).find_each do |section|
   section_name = SECTION_NAMES_ES[section.name_en]
   update_localized_property(section, :name, section_name) if section_name
 
