@@ -6,8 +6,10 @@ Esta configuración amplía los seeds CP incluidos en Primero v2:
 - carga Venezuela, 24 entidades con municipios y 335 municipios;
 - configura el nivel de reporte por estado;
 - crea la agencia operativa `ASONACOP` con código corto `LRF`;
-- crea los roles `Monitor LRF` y `Coordinador LRF`;
-- usa el grupo general `LRF Nacional` y crea un grupo territorial por estado;
+- crea los roles `Administrador LRF`, `Monitor LRF`,
+  `Coordinador Regional LRF`, `Coordinador Terreno LRF` y `Gerente LRF`;
+- usa el grupo general `LRF Nacional` y crea los grupos territoriales
+  `LRF - Táchira` y `LRF - Zulia`;
 - crea los usuarios iniciales `primero_ftr` y `primero_mgr_ftr`;
 - carga traducciones españolas para los formularios y catálogos de Casos;
 - amplía Solicitudes de Localización con admisión, personas vinculadas,
@@ -61,14 +63,30 @@ funcional anonimizado utilizado para adaptar los formularios físicos.
 
 ## Agencia, roles y grupos territoriales
 
-Los monitores deben usar el rol `Monitor LRF`, la agencia `ASONACOP` y el grupo
-territorial correspondiente, por ejemplo `LRF - Táchira`. Este rol gestiona
-solamente sus propias solicitudes.
+Todos los usuarios LRF deben usar la agencia `ASONACOP`.
 
-Los coordinadores deben usar el rol `Coordinador LRF`, la agencia `ASONACOP` y
-uno o varios grupos territoriales. Este rol permite supervisar las solicitudes
-de los grupos asignados. El grupo `LRF Nacional` queda disponible para cuentas
-con cobertura general.
+Roles nacionales:
+
+- `Administrador LRF`: administra usuarios, roles, grupos y todas las
+  Solicitudes de Localización a nivel nacional.
+- `Monitor LRF`: monitorea y gestiona todas las Solicitudes de Localización a
+  nivel nacional, sin administrar usuarios ni roles.
+- `Gerente LRF`: consulta, audita y exporta todas las Solicitudes de
+  Localización a nivel nacional. También recibe permisos de aprobación sobre
+  Casos vinculados, ya que Primero no tiene aprobación nativa para
+  `tracing_request`.
+
+Roles territoriales:
+
+- `Coordinador Regional LRF`: gestiona las Solicitudes de Localización de los
+  grupos territoriales asignados.
+- `Coordinador Terreno LRF`: registra y gestiona las Solicitudes de
+  Localización del grupo territorial asignado.
+
+Para un estado, ambos roles territoriales deben compartir el mismo grupo. Por
+ejemplo, para Zulia se asigna `LRF - Zulia` tanto al `Coordinador Regional LRF`
+como al `Coordinador Terreno LRF`. Para Táchira se usa `LRF - Táchira`. El grupo
+`LRF Nacional` queda disponible para cuentas con cobertura general.
 
 ## Datos geográficos
 

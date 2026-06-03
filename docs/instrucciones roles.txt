@@ -1,0 +1,7 @@
+necesito configurar los roles y Grupos de usuarios que se van a trabajar con el Programa de LRF
+se necesita un 
+- Administrador LRF: que tenga control total de todos los caso registrados por Solicitudes de Localizacion
+- Monitor LRF: que tenga control total de todos los caso registrados por Solicitudes de Localizacion
+- Coordinador Regional LRF (ejemplo Zulia): que pueda ver y modificar todos los casos del Coordinador de terreno de (ejemplo Zulia) por Solicitudes de Localizacion
+- Coordinador Terreno LRF (ejemplo Zulia): este va ser el encargado de registrar, modificar y todo lo referente a los caso de (ejemplo Zulia) por Solicitudes de Localizacion
+- Gerente LRF: este va poder ver y aprobar todos los casos a nivel nacional por Solicitudes de Localizacion
