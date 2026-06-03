@@ -88,6 +88,9 @@ ejemplo, para Zulia se asigna `LRF - Zulia` tanto al `Coordinador Regional LRF`
 como al `Coordinador Terreno LRF`. Para Táchira se usa `LRF - Táchira`. El grupo
 `LRF Nacional` queda disponible para cuentas con cobertura general.
 
+Los códigos de ubicación usan el formato jerárquico `VE`, `VE01` y `VE0101`.
+Para el flujo operativo inicial, `VE01` corresponde a Táchira y `VE02` a Zulia.
+
 ## Datos geográficos
 
 El CSV HXL se genera con:

@@ -58,7 +58,7 @@ ftr_group = UserGroup.create_or_update!(
   description: 'Solicitudes de Localización - ASONACOP',
   agency_unique_ids: [asonacop.unique_id]
 )
-lrf_territorial_location_codes = %w[VES VEV]
+lrf_territorial_location_codes = %w[VE01 VE02]
 lrf_territorial_group_ids = lrf_territorial_location_codes.map { |code| "usergroup-lrf-state-#{code.downcase}" }
 UserGroup.where("unique_id LIKE 'usergroup-lrf-state-%'")
          .where.not(unique_id: lrf_territorial_group_ids)
