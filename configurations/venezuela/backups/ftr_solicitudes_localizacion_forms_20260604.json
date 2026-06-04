@@ -1,0 +1,514 @@
+{
+  "exported_at": "2026-06-04T14:27:47Z",
+  "purpose": "Backup of Venezuela LRF custom tracing request forms before removing them from the local Primero instance.",
+  "reinstall_script": "configurations/venezuela/ftr_solicitudes_localizacion.rb",
+  "form_sections": [
+    {
+      "unique_id": "tracing_request_venezuela_admission",
+      "name_i18n": {
+        "en": "Admission and Referral",
+        "es": "Admisión y referencia"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Admission and Referral",
+        "es": "Admisión y referencia"
+      },
+      "parent_form": "tracing_request",
+      "visible": true,
+      "order": 15,
+      "order_form_group": 15,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_id": "ftr_admission",
+      "editable": true,
+      "core_form": false,
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": false,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": true,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_related_people",
+      "name_i18n": {
+        "en": "Related People",
+        "es": "Personas vinculadas"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Related People",
+        "es": "Personas vinculadas"
+      },
+      "parent_form": "tracing_request",
+      "visible": true,
+      "order": 35,
+      "order_form_group": 35,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_id": "ftr_related_people",
+      "editable": true,
+      "core_form": false,
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": false,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_related_people_subform",
+      "name_i18n": {
+        "en": "Nested Related People",
+        "es": "Personas vinculadas"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Nested Related People",
+        "es": "Personas vinculadas"
+      },
+      "parent_form": "tracing_request",
+      "visible": false,
+      "order": 35,
+      "order_form_group": 35,
+      "order_subform": 1,
+      "form_group_keyed": false,
+      "form_group_id": null,
+      "editable": true,
+      "core_form": false,
+      "is_nested": true,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": false,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_care_reunification",
+      "name_i18n": {
+        "en": "Care and Reunification",
+        "es": "Cuidado y reunificación"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Care and Reunification",
+        "es": "Cuidado y reunificación"
+      },
+      "parent_form": "tracing_request",
+      "visible": true,
+      "order": 40,
+      "order_form_group": 40,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_id": "ftr_care_reunification",
+      "editable": true,
+      "core_form": false,
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": false,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_alerts",
+      "name_i18n": {
+        "en": "Alerts and Immediate Response",
+        "es": "Alertas y respuesta inmediata"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Alerts and Immediate Response",
+        "es": "Alertas y respuesta inmediata"
+      },
+      "parent_form": "tracing_request",
+      "visible": true,
+      "order": 50,
+      "order_form_group": 50,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_id": "ftr_alerts",
+      "editable": true,
+      "core_form": false,
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": false,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_consents",
+      "name_i18n": {
+        "en": "Consents and Authorizations",
+        "es": "Consentimientos y autorizaciones"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Consents and Authorizations",
+        "es": "Consentimientos y autorizaciones"
+      },
+      "parent_form": "tracing_request",
+      "visible": true,
+      "order": 60,
+      "order_form_group": 60,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_id": "ftr_consents",
+      "editable": true,
+      "core_form": false,
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": true,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_actions",
+      "name_i18n": {
+        "en": "Tracing Actions",
+        "es": "Actuaciones de localización"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Tracing Actions",
+        "es": "Actuaciones de localización"
+      },
+      "parent_form": "tracing_request",
+      "visible": true,
+      "order": 70,
+      "order_form_group": 70,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_id": "ftr_actions",
+      "editable": true,
+      "core_form": false,
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": false,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_actions_subform",
+      "name_i18n": {
+        "en": "Nested Tracing Actions",
+        "es": "Actuaciones de localización"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Nested Tracing Actions",
+        "es": "Actuaciones de localización"
+      },
+      "parent_form": "tracing_request",
+      "visible": false,
+      "order": 70,
+      "order_form_group": 70,
+      "order_subform": 1,
+      "form_group_keyed": false,
+      "form_group_id": null,
+      "editable": true,
+      "core_form": false,
+      "is_nested": true,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": false,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_supports",
+      "name_i18n": {
+        "en": "Delivered Supports",
+        "es": "Apoyos entregados"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Delivered Supports",
+        "es": "Apoyos entregados"
+      },
+      "parent_form": "tracing_request",
+      "visible": true,
+      "order": 80,
+      "order_form_group": 80,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_id": "ftr_supports",
+      "editable": true,
+      "core_form": false,
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": false,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_supports_subform",
+      "name_i18n": {
+        "en": "Nested Delivered Supports",
+        "es": "Apoyos entregados"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Nested Delivered Supports",
+        "es": "Apoyos entregados"
+      },
+      "parent_form": "tracing_request",
+      "visible": false,
+      "order": 80,
+      "order_form_group": 80,
+      "order_subform": 1,
+      "form_group_keyed": false,
+      "form_group_id": null,
+      "editable": true,
+      "core_form": false,
+      "is_nested": true,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": false,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    },
+    {
+      "unique_id": "tracing_request_venezuela_documents",
+      "name_i18n": {
+        "en": "Documents and Supports",
+        "es": "Documentos y soportes"
+      },
+      "help_text_i18n": null,
+      "description_i18n": {
+        "en": "Documents and Supports",
+        "es": "Documentos y soportes"
+      },
+      "parent_form": "tracing_request",
+      "visible": true,
+      "order": 90,
+      "order_form_group": 90,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_id": "ftr_documents",
+      "editable": true,
+      "core_form": false,
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "subform_prevent_item_removal": false,
+      "subform_append_only": false,
+      "subform_header_links": [],
+      "display_help_text_view": true,
+      "shared_subform": null,
+      "shared_subform_group": null,
+      "is_summary_section": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": null,
+      "display_conditions": null,
+      "collapsed_field_names": null
+    }
+  ],
+  "standard_tracing_request_subform_section": {
+    "unique_id": "tracing_request_subform_section",
+    "removed_ftr_fields": [
+      "#<Field:0x00007f285d7ecbd8>",
+      "#<Field:0x00007f285d7ec958>",
+      "#<Field:0x00007f285d7ec6d8>",
+      "#<Field:0x00007f285d7ec458>",
+      "#<Field:0x00007f285d7ec1d8>",
+      "#<Field:0x00007f285d7ebeb8>"
+    ]
+  },
+  "form_group_lookup": {
+    "unique_id": "lookup-form-group-cp-tracing-request",
+    "name_i18n": {
+      "en": "Form Groups - CP Tracing Request"
+    },
+    "lookup_values_i18n": [
+      {
+        "id": "record_owner",
+        "display_text": {
+          "en": "Record Owner",
+          "es": "Responsable del registro"
+        }
+      },
+      {
+        "id": "inquirer",
+        "display_text": {
+          "en": "Inquirer",
+          "es": "Solicitante"
+        }
+      },
+      {
+        "id": "tracing_request",
+        "display_text": {
+          "en": "Tracing Request",
+          "es": "Solicitud de localización"
+        }
+      },
+      {
+        "id": "photos_audio",
+        "display_text": {
+          "en": "Photos and Audio",
+          "es": "Fotos y audio"
+        }
+      },
+      {
+        "id": "other_reportable_fields",
+        "display_text": {
+          "en": "Other Reportable Fields",
+          "es": "Otros campos de reporte"
+        }
+      },
+      {
+        "id": "ftr_admission",
+        "display_text": {
+          "en": "Admission and Referral",
+          "es": "Admisión y referencia"
+        }
+      },
+      {
+        "id": "ftr_related_people",
+        "display_text": {
+          "en": "Related People",
+          "es": "Personas vinculadas"
+        }
+      },
+      {
+        "id": "ftr_care_reunification",
+        "display_text": {
+          "en": "Care and Reunification",
+          "es": "Cuidado y reunificación"
+        }
+      },
+      {
+        "id": "ftr_alerts",
+        "display_text": {
+          "en": "Alerts and Immediate Response",
+          "es": "Alertas y respuesta inmediata"
+        }
+      },
+      {
+        "id": "ftr_consents",
+        "display_text": {
+          "en": "Consents and Authorizations",
+          "es": "Consentimientos y autorizaciones"
+        }
+      },
+      {
+        "id": "ftr_actions",
+        "display_text": {
+          "en": "Tracing Actions",
+          "es": "Actuaciones de localización"
+        }
+      },
+      {
+        "id": "ftr_supports",
+        "display_text": {
+          "en": "Delivered Supports",
+          "es": "Apoyos entregados"
+        }
+      },
+      {
+        "id": "ftr_documents",
+        "display_text": {
+          "en": "Documents and Supports",
+          "es": "Documentos y soportes"
+        }
+      }
+    ],
+    "locked": false
+  }
+}

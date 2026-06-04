@@ -18,7 +18,9 @@ I18n.available_locales = configured_locales
 I18n.default_locale = configured_default_locale
 
 load File.join(__dir__, 'translations_es.rb')
-load File.join(__dir__, 'ftr_solicitudes_localizacion.rb')
+# The custom LRF Tracing Request forms are backed up in
+# ftr_solicitudes_localizacion.rb and can be loaded later when the workflow is
+# ready to be installed again.
 
 puts 'Loading Venezuela states and municipalities'
 system_settings = SystemSettings.current

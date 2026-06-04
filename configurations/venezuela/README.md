@@ -12,9 +12,8 @@ Esta configuración amplía los seeds CP incluidos en Primero v2:
   `LRF - Táchira` y `LRF - Zulia`;
 - crea los usuarios iniciales `primero_ftr` y `primero_mgr_ftr`;
 - carga traducciones españolas para los formularios y catálogos de Casos;
-- amplía Solicitudes de Localización con admisión, personas vinculadas,
-  cuidado y reunificación, alertas, consentimientos, actuaciones, apoyos
-  entregados y documentos restringidos.
+- deja respaldados, pero no cargados automáticamente, los formularios LRF de
+  Solicitudes de Localización.
 
 La carga reemplaza todas las ubicaciones existentes. Antes de ejecutarla, crear
 un respaldo de PostgreSQL y agregar explícitamente las siguientes variables
@@ -50,13 +49,17 @@ en `translations_es.rb`. El cargador venezolano las aplica después de los seeds
 estándar de Primero. Esto cubre secciones, campos visibles y listas utilizadas
 por Casos.
 
-## Flujo de Solicitudes de Localización
+## Formularios LRF archivados
 
-Los formularios adicionales están definidos en
-`ftr_solicitudes_localizacion.rb`. La Solicitud de Localización se utiliza como
-puerta de entrada para admisión, búsqueda, consentimientos y reunificación. Si
-se identifican alertas de protección o atención prolongada, se debe crear o
-vincular un Caso para gestionar servicios, derivaciones y seguimientos.
+Los formularios adicionales están respaldados en
+`ftr_solicitudes_localizacion.rb`, pero no se cargan automáticamente desde
+`load_configuration.rb`. También existe un respaldo JSON de la base en
+`backups/ftr_solicitudes_localizacion_forms_20260604.json`.
+
+Cuando se decida instalar de nuevo ese flujo, se puede volver a cargar
+`ftr_solicitudes_localizacion.rb` para restaurar admisión, personas vinculadas,
+cuidado/reunificación, alertas, consentimientos, actuaciones, apoyos y
+documentos.
 
 El archivo `ftr_solicitudes_localizacion_blueprint.md` documenta el mapeo
 funcional anonimizado utilizado para adaptar los formularios físicos.
