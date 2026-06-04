@@ -61,6 +61,9 @@ Cuando se decida instalar de nuevo ese flujo, se puede volver a cargar
 cuidado/reunificación, alertas, consentimientos, actuaciones, apoyos y
 documentos.
 
+Si una instancia ya tiene esos formularios cargados y se quiere volver al flujo
+estándar, ejecutar `remove_lrf_tracing_request_forms.rb` desde Rails.
+
 El archivo `ftr_solicitudes_localizacion_blueprint.md` documenta el mapeo
 funcional anonimizado utilizado para adaptar los formularios físicos.
 
