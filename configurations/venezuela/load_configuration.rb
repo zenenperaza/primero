@@ -81,7 +81,10 @@ territorial_groups = Location.where(admin_level: 1, location_code: lrf_territori
 end
 
 lrf_tracing_manage = [
-  Permission.new(resource: Permission::TRACING_REQUEST, actions: [Permission::MANAGE]),
+  Permission.new(
+    resource: Permission::TRACING_REQUEST,
+    actions: [Permission::MANAGE, Permission::VIEW_PHOTO, Permission::VIEW_AUDIO]
+  ),
   Permission.new(resource: Permission::POTENTIAL_MATCH, actions: [Permission::MANAGE]),
   Permission.new(resource: Permission::CASE, actions: [Permission::READ, Permission::FIND_TRACING_MATCH]),
   Permission.new(
@@ -104,7 +107,9 @@ lrf_tracing_supervise = [
       Permission::EXPORT_EXCEL,
       Permission::EXPORT_PDF,
       Permission::CHANGE_LOG,
-      Permission::ACCESS_LOG
+      Permission::ACCESS_LOG,
+      Permission::VIEW_PHOTO,
+      Permission::VIEW_AUDIO
     ]
   ),
   Permission.new(
