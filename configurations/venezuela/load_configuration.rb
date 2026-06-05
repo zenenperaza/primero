@@ -22,6 +22,17 @@ load File.join(__dir__, 'translations_es.rb')
 # ftr_solicitudes_localizacion.rb and can be loaded later when the workflow is
 # ready to be installed again.
 
+puts 'Enabling Tracing Request media uploads'
+media_section = FormSection.find_by!(unique_id: 'tracing_request_photos_and_audio')
+media_fields = media_section.fields.map do |field|
+  if %w[photos recorded_audio].include?(field['name'])
+    field['editable'] = true
+    field['disabled'] = false
+  end
+  field
+end
+media_section.update!(editable: true, fields: media_fields)
+
 puts 'Loading Venezuela states and municipalities'
 system_settings = SystemSettings.current
 system_settings.update!(
