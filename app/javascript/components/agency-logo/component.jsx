@@ -19,13 +19,22 @@ function AgencyLogo({ alwaysFullLogo = false }) {
       const styleFull = { backgroundImage: `url(${agency.get("logo_full")})` };
       const classesIcon = cx([css.agencyLogo, css.agencyLogoIcon]);
       const classesFull = cx(css.agencyLogo, { [css.agencyLogoFull]: !alwaysFullLogo });
+      const classesFullImage = cx(css.agencyLogo, css.agencyLogoImage);
 
       const fullLogo = (
         <div id={`${uniqueId}-logo`} key={`${uniqueId}-logo`} className={classesFull} style={styleFull} />
       );
 
       if (alwaysFullLogo) {
-        return fullLogo;
+        return (
+          <img
+            id={`${uniqueId}-logo`}
+            key={`${uniqueId}-logo`}
+            className={classesFullImage}
+            src={agency.get("logo_full")}
+            alt={agency.get("name") || uniqueId}
+          />
+        );
       }
 
       return (
