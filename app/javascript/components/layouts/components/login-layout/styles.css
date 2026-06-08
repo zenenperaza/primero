@@ -115,14 +115,9 @@
 }
 
 .loginLogo > div {
-  box-sizing: border-box;
-  height: auto;
+  height: 100%;
   justify-content: center;
   margin-bottom: 0;
-}
-
-.loginLogo > div > div {
-  flex: 0 0 140px;
 }
 
 .footer {
