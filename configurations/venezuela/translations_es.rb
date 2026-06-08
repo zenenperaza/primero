@@ -635,6 +635,38 @@ update_lookup_es(
   }
 )
 update_lookup_es(
+  'lookup-form-group-cp-incident',
+  name: 'Grupos de formularios - Incidente CP',
+  values: {
+    'record_owner' => 'Responsable del registro',
+    'perpetrator_details' => 'Detalles del presunto responsable',
+    'cp_incident' => 'Detalles del incidente',
+    'cp_individual_details' => 'Detalles de la persona'
+  }
+)
+update_lookup_es(
+  'lookup-form-group-cp-registry-record',
+  name: 'Grupos de formularios - Ficha de registro',
+  values: {
+    'record_information' => 'Informacion del registro',
+    'registry_details' => 'Detalles de ficha de registro'
+  }
+)
+update_lookup_es(
+  'lookup-form-group-cp-family',
+  name: 'Grupos de formularios - Registro de familia',
+  values: {
+    'record_information' => 'Informacion del registro',
+    'family_overview' => 'Resumen de familia',
+    'family_closure' => 'Cierre de familia',
+    'family_consent' => 'Consentimiento familiar',
+    'family_members' => 'Miembros de la familia',
+    'family_notes' => 'Notas familiares',
+    'family_documents' => 'Documentos',
+    'other_reportable_fields' => 'Otros campos de reporte'
+  }
+)
+update_lookup_es(
   'lookup-perpetrator-relationship',
   name: 'Relación con el responsable',
   values: {
