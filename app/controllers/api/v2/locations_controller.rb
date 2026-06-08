@@ -71,7 +71,17 @@ class Api::V2::LocationsController < ApplicationApiController
   end
 
   def order_by
-    Location::ORDER_BY_FIELD_MAP[params[:order_by]&.to_sym] || params[:order_by]
+    return default_sort_field unless params[:order_by].present?
+
+    Location::ORDER_BY_FIELD_MAP[params[:order_by].to_sym] || params[:order_by]
+  end
+
+  def order
+    params[:order] || 'asc'
+  end
+
+  def default_sort_field
+    :name
   end
 
   def importer
