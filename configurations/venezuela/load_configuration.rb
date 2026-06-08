@@ -33,6 +33,23 @@ media_fields = media_section.fields.map do |field|
 end
 media_section.update!(editable: true, fields: media_fields)
 
+puts 'Assigning missing CP form groups'
+FormSection.where(unique_id: 'cp_other_reportable_fields').update_all(form_group_id: 'other_reportable_fields')
+incident_form_group_lookup = Lookup.find_by!(unique_id: 'lookup-form-group-cp-incident')
+incident_form_group_values = incident_form_group_lookup.lookup_values_i18n || []
+other_reportable_fields_group = incident_form_group_values.find { |value| value['id'] == 'other_reportable_fields' }
+
+if other_reportable_fields_group
+  other_reportable_fields_group['display_text'] ||= {}
+else
+  other_reportable_fields_group = { 'id' => 'other_reportable_fields', 'display_text' => {} }
+  incident_form_group_values << other_reportable_fields_group
+end
+
+other_reportable_fields_group['display_text']['en'] = 'Other Reportable Fields'
+other_reportable_fields_group['display_text']['es'] = 'Otros campos de reporte'
+incident_form_group_lookup.update!(lookup_values_i18n: incident_form_group_values)
+
 puts 'Loading Venezuela states and municipalities'
 system_settings = SystemSettings.current
 system_settings.update!(

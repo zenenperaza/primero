@@ -641,7 +641,8 @@ update_lookup_es(
     'record_owner' => 'Responsable del registro',
     'perpetrator_details' => 'Detalles del presunto responsable',
     'cp_incident' => 'Detalles del incidente',
-    'cp_individual_details' => 'Detalles de la persona'
+    'cp_individual_details' => 'Detalles de la persona',
+    'other_reportable_fields' => 'Otros campos de reporte'
   }
 )
 update_lookup_es(
