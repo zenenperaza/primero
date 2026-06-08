@@ -22,6 +22,13 @@ load File.join(__dir__, 'translations_es.rb')
 # ftr_solicitudes_localizacion.rb and can be loaded later when the workflow is
 # ready to be installed again.
 
+puts 'Configuring English base language and Spanish translations'
+SystemSettings.current.update!(
+  base_language: 'en',
+  default_locale: 'es',
+  locales: %w[en es]
+)
+
 puts 'Enabling Tracing Request media uploads'
 media_section = FormSection.find_by!(unique_id: 'tracing_request_photos_and_audio')
 media_fields = media_section.fields.map do |field|
