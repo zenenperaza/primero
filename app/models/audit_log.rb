@@ -164,7 +164,7 @@ class AuditLog < ApplicationRecord
 
   def approval_type
     approval_type = approval_type_from_action
-    SystemSettings.current.approvals_labels.include?(approval_type) ? approval_type : nil
+    SystemSettings.current.approvals_labels&.include?(approval_type) ? approval_type : nil
   end
 
   def approval_type_from_action

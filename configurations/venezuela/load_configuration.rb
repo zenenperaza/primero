@@ -26,7 +26,23 @@ puts 'Configuring English base language and Spanish translations'
 SystemSettings.current.update!(
   base_language: 'en',
   default_locale: 'es',
-  locales: %w[en es]
+  locales: %w[en es],
+  approvals_labels_i18n: {
+    en: {
+      closure: 'Closure',
+      case_plan: 'Case Plan',
+      assessment: 'Assessment',
+      action_plan: 'Action Plan',
+      gbv_closure: 'GBV Closure'
+    },
+    es: {
+      closure: 'Cierre',
+      case_plan: 'Plan de Caso',
+      assessment: "Evaluaci\u00F3n",
+      action_plan: "Plan de Acci\u00F3n",
+      gbv_closure: 'Cierre VBG'
+    }
+  }
 )
 
 puts 'Enabling Tracing Request media uploads'
