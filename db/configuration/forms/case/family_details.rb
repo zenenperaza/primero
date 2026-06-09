@@ -27,6 +27,11 @@ family_details_section_fields = [
               { id: 'unknown', display_text: 'Unknown' },
               { id: 'alive', display_text: 'Alive' },
               { id: 'dead', display_text: 'Dead' }
+            ],
+            'option_strings_text_es' => [
+              { id: 'unknown', display_text: 'Desconocido' },
+              { id: 'alive', display_text: 'Vivo(a)' },
+              { id: 'dead', display_text: 'Fallecido(a)' }
             ].map(&:with_indifferent_access)),
   Field.new('name' => 'relation_death_details',
             'type' => 'textarea',

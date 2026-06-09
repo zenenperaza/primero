@@ -30,6 +30,13 @@ transitions_subform = [
                 { id: 'accepted', display_text: 'Accepted' },
                 { id: 'rejected', display_text: 'Rejected' },
                 { id: 'done', display_text: 'Done' }
+              ],
+              'option_strings_text_es' => [
+                { id: 'in_progress', display_text: 'En progreso' },
+                { id: 'pending', display_text: 'Pendiente' },
+                { id: 'accepted', display_text: 'Aceptada' },
+                { id: 'rejected', display_text: 'Rechazada' },
+                { id: 'done', display_text: 'Completada' }
               ].map(&:with_indifferent_access) }),
   Field.new({ 'name' => 'rejected_reason',
               'type' => 'text_field',
@@ -113,6 +120,11 @@ referral_transfer_fields = [
                 { id: 'in_progress', display_text: 'In Progress' },
                 { id: 'accepted', display_text: 'Accepted' },
                 { id: 'rejected', display_text: 'Rejected' }
+              ],
+              'option_strings_text_es' => [
+                { id: 'in_progress', display_text: 'En progreso' },
+                { id: 'accepted', display_text: 'Aceptada' },
+                { id: 'rejected', display_text: 'Rechazada' }
               ].map(&:with_indifferent_access) }),
   Field.new({ 'name' => 'transitions',
               'type' => 'subform',

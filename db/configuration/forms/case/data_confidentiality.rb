@@ -10,6 +10,11 @@ consent_fields = [
               { id: 'individual', display_text: 'Individual' },
               { id: 'caregiver', display_text: 'Caregiver' },
               { id: 'other', display_text: 'Other (please specify)' }
+            ],
+            'option_strings_text_es' => [
+              { id: 'individual', display_text: 'Persona' },
+              { id: 'caregiver', display_text: 'Cuidador(a)' },
+              { id: 'other', display_text: 'Otro (especifique)' }
             ].map(&:with_indifferent_access)),
   Field.new('name' => 'consent_source_other',
             'type' => 'text_field',
@@ -18,7 +23,8 @@ consent_fields = [
             'type' => 'tick_box',
             'tick_box_label_en' => 'Yes',
             'display_name_en' => 'Consent has been obtained for the child to receive case management services',
-            'help_text' => 'This includes consent for sharing information with other organizations providing services'),
+            'help_text_en' => 'This includes consent for sharing information with other organizations providing services',
+            'help_text_es' => 'Incluye el consentimiento para compartir información con otras organizaciones que prestan servicios'),
   Field.new('name' => 'consent_reporting',
             'type' => 'radio_button',
             'display_name_en' => 'Consent is given share non-identifiable information for reporting',
@@ -35,7 +41,8 @@ consent_fields = [
             'tick_box_label_en' => 'Yes',
             'display_name_en' => 'The individual providing consent agrees to share collected information with other '\
                                   'organizations for service provision?',
-            'help_text' => 'This includes sharing information with other oranizations providing services.'),
+            'help_text_en' => 'This includes sharing information with other organizations providing services.',
+            'help_text_es' => 'Incluye compartir información con otras organizaciones que prestan servicios.'),
   Field.new('name' => 'consent_share_separator',
             'type' => 'separator',
             'display_name_en' => 'Consent Details for Sharing Information'),
@@ -50,6 +57,13 @@ consent_fields = [
               { id: 'unhcr', display_text: 'UNHCR' }.with_indifferent_access,
               { id: 'other_organizations', display_text: 'Other Organizations' }.with_indifferent_access,
               { id: 'others', display_text: 'Others, please specify' }.with_indifferent_access
+            ],
+            'option_strings_text_es' => [
+              { id: 'family', display_text: 'Familia' }.with_indifferent_access,
+              { id: 'authorities', display_text: 'Autoridades' }.with_indifferent_access,
+              { id: 'unhcr', display_text: 'ACNUR' }.with_indifferent_access,
+              { id: 'other_organizations', display_text: 'Otras organizaciones' }.with_indifferent_access,
+              { id: 'others', display_text: 'Otros, especifique' }.with_indifferent_access
             ]),
   Field.new('name' => 'consent_info_sharing_others',
             'type' => 'text_field',
@@ -69,6 +83,14 @@ consent_fields = [
                 display_text: 'Want to communicate information themselves'
               }.with_indifferent_access,
               { id: 'others', display_text: 'Other reason, please specify' }.with_indifferent_access
+            ],
+            'option_strings_text_es' => [
+              { id: 'fear', display_text: 'Temor de daño para sí mismo(a) u otras personas' }.with_indifferent_access,
+              {
+                id: 'communicate_information',
+                display_text: 'Desea comunicar la información personalmente'
+              }.with_indifferent_access,
+              { id: 'others', display_text: 'Otro motivo, especifique' }.with_indifferent_access
             ]),
   Field.new('name' => 'withholding_info_other_reason',
             'type' => 'text_field',

@@ -669,9 +669,14 @@ Lookup.create_or_update!(
 Lookup.create_or_update!(
   unique_id: 'lookup-inquiry-status',
   name_en: 'Inquiry Status',
+  name_es: 'Estado de la solicitud',
   lookup_values_en: [
     { id: 'open', display_text: 'Open' }.with_indifferent_access,
     { id: 'closed', display_text: 'Closed' }.with_indifferent_access
+  ],
+  lookup_values_es: [
+    { id: 'open', display_text: 'Abierta' }.with_indifferent_access,
+    { id: 'closed', display_text: 'Cerrada' }.with_indifferent_access
   ]
 )
 

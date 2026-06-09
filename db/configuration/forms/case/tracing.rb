@@ -19,6 +19,14 @@ tracing_action_subform = [
               { id: 'photo_tracing', display_text: 'Photo Tracing' },
               { id: 'referral_to_ngo', display_text: 'Referral to NGO' },
               { id: 'referral_to_icrc', display_text: 'Referral to ICRC' }
+            ],
+            'option_strings_text_es' => [
+              { id: 'case_by_case_tracing', display_text: 'Localización caso por caso' },
+              { id: 'individual_tracing', display_text: 'Localización individual' },
+              { id: 'mass_tracing', display_text: 'Localización masiva' },
+              { id: 'photo_tracing', display_text: 'Localización por foto' },
+              { id: 'referral_to_ngo', display_text: 'Referencia a ONG' },
+              { id: 'referral_to_icrc', display_text: 'Referencia al CICR' }
             ].map(&:with_indifferent_access)),
   Field.new('name' => 'address_tracing',
             'type' => 'textarea',
@@ -38,6 +46,12 @@ tracing_action_subform = [
               { id: 'successful', display_text: 'Successful' },
               { id: 'unsuccessful', display_text: 'Unsuccessful' },
               { id: 'yes', display_text: 'Yes' }
+            ],
+            'option_strings_text_es' => [
+              { id: 'pending', display_text: 'Pendiente' },
+              { id: 'successful', display_text: 'Exitosa' },
+              { id: 'unsuccessful', display_text: 'No exitosa' },
+              { id: 'yes', display_text: 'Sí' }
             ].map(&:with_indifferent_access))
 ]
 

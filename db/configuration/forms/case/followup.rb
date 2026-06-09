@@ -25,6 +25,18 @@ followup_subform_fields = [
               { id: 'education_intervention_assessment', display_text: 'Education Intervention Assessment' },
               { id: 'health_intervention_assessment', display_text: 'Health Intervention Assessment' },
               { id: 'other_intervention_assessment', display_text: 'Other Intervention Assessment' }
+            ],
+            'option_strings_text_es' => [
+              { id: 'personal_intervention_assessment', display_text: 'Evaluación de intervención personal' },
+              { id: 'medical_intervention_assessment', display_text: 'Evaluación de intervención médica' },
+              { id: 'family_intervention_assessment', display_text: 'Evaluación de intervención familiar' },
+              { id: 'community_intervention_assessment', display_text: 'Evaluación de intervención comunitaria' },
+              { id: 'unhcr_intervention_assessment', display_text: 'Evaluación de intervención de ACNUR' },
+              { id: 'ngo_intervention_assessment', display_text: 'Evaluación de intervención de ONG' },
+              { id: 'economic_intervention_assessment', display_text: 'Evaluación de intervención económica' },
+              { id: 'education_intervention_assessment', display_text: 'Evaluación de intervención educativa' },
+              { id: 'health_intervention_assessment', display_text: 'Evaluación de intervención de salud' },
+              { id: 'other_intervention_assessment', display_text: 'Otra evaluación de intervención' }
             ].map(&:with_indifferent_access)),
   Field.new('name' => 'protection_concern_type',
             'type' => 'select_box',

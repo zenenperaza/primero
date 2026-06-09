@@ -242,6 +242,9 @@ class Report < ApplicationRecord
   end
 
   def apply_module_filter(query)
+    report_model = model.try(:parent_record_type) || model
+    return query unless report_model.column_names.include?('srch_module_id')
+
     query.where(srch_module_id: module_id)
   end
 

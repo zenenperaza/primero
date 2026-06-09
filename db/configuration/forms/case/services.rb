@@ -31,6 +31,12 @@ services_subform = [
       { id: '3_hours', display_text: 'Three hours' },
       { id: '1_day', display_text: 'One day' },
       { id: '3_days', display_text: 'Three days' }
+    ],
+    'option_strings_text_es' => [
+      { id: '1_hour', display_text: 'Una hora' },
+      { id: '3_hours', display_text: 'Tres horas' },
+      { id: '1_day', display_text: 'Un día' },
+      { id: '3_days', display_text: 'Tres días' }
     ].map(&:with_indifferent_access),
     'help_text_en' => 'Enter the Implementation Timeframe for the service; the timeframe is used in the dashboard to indicate if services are overdue.'
   ),

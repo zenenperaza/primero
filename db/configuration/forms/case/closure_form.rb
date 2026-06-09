@@ -42,6 +42,14 @@ closure_fields = [
               { id: 'repatriated', display_text: 'Repatriated' },
               { id: 'transferred', display_text: 'Transferred' },
               { id: 'other', display_text: 'Other' }
+            ],
+            'option_strings_text_es' => [
+              { id: 'death_of_child', display_text: 'Fallecimiento del niño, niña o adolescente' },
+              { id: 'formal_closing', display_text: 'Cierre formal' },
+              { id: 'not_seen_during_verification', display_text: 'No visto durante la verificación' },
+              { id: 'repatriated', display_text: 'Repatriado(a)' },
+              { id: 'transferred', display_text: 'Transferido(a)' },
+              { id: 'other', display_text: 'Otro' }
             ].map(&:with_indifferent_access)),
   Field.new('name' => 'closure_reason_other',
             'type' => 'text_field',

@@ -1406,6 +1406,7 @@ es:
       incident: Incidente
       individual_victim: Víctima Individual
       potential_match: Posible Concordancia
+      case_relationships: Casos vinculados
       record_information: Información del Registro
       referrals: Referencias
       reportable_follow_up: Seguimiento
@@ -4068,6 +4069,17 @@ es:
       message: 'Usted ha bloqueado notificaciones de Primero en este dispositivo. Para cambiar esto, necesitará activar los permisos de notificaciones. '
       android: "Android: Vaya a Configuración. De click en Apps. Encuentre Primero en la lista de aplicaciones y de click en esto. De click a Notificaciones. Cambie el botón de notificaciones al estado \"encendido\"."
       ios: "iOS: Vaya al app de Configuración. De click en Notificaciones. Desplace la lista hacia abajo a la lista de Apps y encuentre Primero. Active la opción de notificaciones de Primero."
+  access_log:
+    label: Registro de accesos
+    show: 'Consultado por:'
+    update: 'Modificado por:'
+    no_more: Fin del registro de accesos
+    filters:
+      access_users: Usuarios que accedieron
+      actions: Tipo de acceso
+      timestamp: Hora de acceso
+      show: Consultado
+      update: Modificado
   email:
     greeting: "Apreciable %{full_name}"
     admin_closing: "Para informar o resolver problemas, por favor contacte su %{sys_admin}"

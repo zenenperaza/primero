@@ -16,6 +16,13 @@ protection_concern_detail_subform_fields = [
               { id: 'registration', display_text: 'Registration' },
               { id: 'reunification', display_text: 'Reunification' },
               { id: 'verification', display_text: 'Verification' }
+            ],
+            'option_strings_text_es' => [
+              { id: 'follow_up_after_reunification', display_text: 'Seguimiento después de la reunificación' },
+              { id: 'follow_up_in_care', display_text: 'Seguimiento durante el cuidado' },
+              { id: 'registration', display_text: 'Registro' },
+              { id: 'reunification', display_text: 'Reunificación' },
+              { id: 'verification', display_text: 'Verificación' }
             ].map(&:with_indifferent_access)),
   Field.new('name' => 'concern_details',
             'type' => 'textarea',

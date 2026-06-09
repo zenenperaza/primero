@@ -13,6 +13,11 @@ child_preferences_fields_subform = [
               { id: 'first_choice', display_text: 'First choice' },
               { id: 'second_choice', display_text: 'Second choice' },
               { id: 'third_choice', display_text: 'Third choice' }
+            ],
+            'option_strings_text_es' => [
+              { id: 'first_choice', display_text: 'Primera opción' },
+              { id: 'second_choice', display_text: 'Segunda opción' },
+              { id: 'third_choice', display_text: 'Tercera opción' }
             ].map(&:with_indifferent_access)),
   Field.new('name' => 'wishes_relationship',
             'type' => 'select_box',

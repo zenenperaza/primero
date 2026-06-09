@@ -355,6 +355,24 @@ describe Report do
     end
   end
 
+  describe '#apply_module_filter' do
+    it 'applies the module search column when the report table has it' do
+      report = Report.new(record_type: 'case', module_id: module1.unique_id)
+
+      query = report.apply_module_filter(Child.all)
+
+      expect(query.to_sql).to include('"cases"."srch_module_id"')
+    end
+
+    it 'does not apply the module search column for tracing requests' do
+      report = Report.new(record_type: 'tracing_request', module_id: module1.unique_id)
+
+      query = report.apply_module_filter(TracingRequest.all)
+
+      expect(query.to_sql).not_to include('srch_module_id')
+    end
+  end
+
   describe 'agency report scope', search: true do
     let(:agency) { Agency.create!(name: 'Test Agency', agency_code: 'TA1', services: ['Test type']) }
     let(:agency_with_space) do
