@@ -2370,6 +2370,35 @@ es:
       percentage_cases_safety_plan:
         safety_plan_completed: 'Plan de seguridad completado'
         safety_plan_not_completed: 'Plan de seguridad no completado'
+    case_management_kpis_report:
+      name: Indicadores de gestión de casos
+      description: Da seguimiento a indicadores clave del desempeño de gestión de casos de protección infantil, incluyendo referencias por distintos actores, ubicación del reporte y sexo para inquietudes de protección seleccionadas, y razones de cierre.
+      reports:
+        source_identification_referral: Fuente de identificación / referencia
+        number_cases_disaggregated_by: Número de casos desglosados por
+        reporting_location_and_sex: Ubicación del reporte y sexo
+        number_cases_by_reason_closure: Número de casos por razón de cierre
+        protection_concerns_by_sex: Inquietudes de protección por sexo
+        protection_concerns_by_reporting_location: Inquietudes de protección por ubicación del reporte
+        case_protection_concerns_reporting_location: Inquietudes de protección por ubicación del reporte
+        percentage_case_reasons_for_closure: Razón de cierre
+      filter_options:
+        registration_date: Fecha de registro
+    case_management_kpis_service_referrals_report:
+      name: Indicadores de gestión de casos - Referencias de servicios
+      description: Número de casos referidos a servicios apropiados, por tipo de servicio multisectorial
+      reports:
+        referred_appropriate_service: Casos referidos a servicios apropiados
+        service_response_day_time: Fecha de respuesta del servicio
+        case_referred_appropriate_service: Casos referidos a servicios apropiados
+      filter_options:
+        registration_date: Fecha de registro
+        service_implemented_day_time: Servicio implementado el
+    distribution_users_role_report:
+      name: Distribución de usuarios por rol
+      description: Muestra el número de usuarios con cada rol, desglosado por grupo de usuarios. Esto permite ver la cantidad de personal supervisor y administrativo por trabajador(a) de casos.
+      reports:
+        distribution_users_role: Distribución de usuarios por rol
   usage_report:
     label: Exportar Reporte de Uso
     file_name: Cree su propio nombre de archivo (Opcional)
@@ -2493,11 +2522,14 @@ es:
       cases_by_task_overdue_followups: Ver Casos por Tarea de Servicios Vencidos
       cases_by_task_overdue_services: Ver Casos por Tarea de Servicios Vencidos
       cases_managed_other_users: Casos gestionados por otro(a) usuario(a)s
+      case_management_kpis_report: Indicadores de gestión de casos
+      case_management_kpis_service_referrals_report: Indicadores de gestión de casos - Referencias de servicios
       close: Cerrar
       consent_override: Anular consentimiento
       copy: Copiar
       copy_of: Copiar de
       create: Crear
+      action_needed_identified: 'Acción requerida: casos identificados'
       dash_case_incident_overview: Mis Casos /Incidentes
       dash_cases_by_social_worker: Ver Casos por Trabajadora Social
       dash_cases_by_task_overdue: Ver Casos por Tarea Vencida
@@ -2521,6 +2553,7 @@ es:
       dash_national_admin_summary: Resumen de Administrador(a)
       dashboard: Tablero
       delete: Eliminar
+      distribution_users_role_report: Distribución de usuarios por rol
       display_view_page: Mostrar Página de Vista
       duplicate: Duplicar Búsqueda
       enable_disable_record: Deshabilitar
@@ -2587,6 +2620,7 @@ es:
       system: Sistema
       tracing_request: Solicitud de Localización
       transfer: Puede utilizarse para transferir
+      update_case_relationships: Vincular/desvincular un caso con otro caso
       user: Usuarios
       user_group: Grupos de usuario(a)s
       usage_report: Reporte de Uso
@@ -2595,6 +2629,7 @@ es:
       view_assessment: Ver Evaluación
       view_photo: Ver Fotografía
       view_protection_concerns_filter: Ver Filtro de Inquietudes de Protección
+      view_case_relationships: Ver casos vinculados
       view_response: Ver Respuestas
       webhook: Gancho web (Webhook)
       workflow: Flujo de Trabajo - casos Individuales
@@ -2893,6 +2928,12 @@ es:
           link_family_record:
             explanation: Permite a un usuario buscar y vincular un Registro Familiar a su Caso. Además permite a los usuarios a desvincular un Registro Familiar de un Caso.
             label: Vincular / Desvincular el Registro Familiar del Caso
+          view_case_relationships:
+            explanation: Permite a un(a) usuario(a) ver la lista de todos los casos vinculados al caso actual.
+            label: Ver casos vinculados
+          update_case_relationships:
+            explanation: Permite a un(a) usuario(a), al actualizar su caso, buscar otro caso existente y vincularlo al caso actual. También permite desvincular ese segundo caso.
+            label: Vincular/desvincular un caso con otro caso
         explanation: Representa a un(a) niño/niña individual, a un(a) sobreviviente o a otro(a) beneficiario(a).
         label: Caso
       dashboard:
@@ -2900,6 +2941,9 @@ es:
           action_needed_new_updated:
             explanation: Muestra el indicador de "Nuevo y Actualizado" en el tablero de "Acción Requerida". Esto incluye Casos que han sido recientemente asignados al usuario actual, o aquellos que otro usuario ha actualizado desde la última vez que el usuario actual los haya actualizado.
             label: 'Accion Requerida: Nuevo o Actualizado'
+          action_needed_identified:
+            explanation: Muestra el número de casos que han sido identificados, pero que aún no están abiertos ni reciben gestión de casos.
+            label: 'Acción requerida: casos identificados'
           action_needed_new_referrals:
             explanation: Muestra el indicador de "Nuevas Referencias" en el tablero de "Acción Requerida". Esto incluye cualquier Caso con una Referencia nueva enviada al usuario actual, donde el usuario actual no es la última persona en actualizar dicho Caso.
             label: 'Acción Requerida: Nuevas Referencias'
@@ -3218,6 +3262,15 @@ es:
           case_characteristics:
             label: 'Características del caso'
             explanation: 'Solo relevante para el módulo PCM (Gestión de Casos de Protección). Desglosa los casos según una serie de características clave: riesgo de protección, nivel de riesgo, duración, estado de discapacidad, finalización de un plan de seguridad y género.'
+          case_management_kpis_report:
+            label: Indicadores de gestión de casos
+            explanation: Da seguimiento a indicadores clave del desempeño de gestión de casos de protección infantil, incluyendo referencias por distintos actores, ubicación del reporte y sexo para inquietudes de protección seleccionadas, y razones de cierre.
+          case_management_kpis_service_referrals_report:
+            label: Indicadores de gestión de casos - Referencias de servicios
+            explanation: Número de casos referidos a servicios apropiados, por tipo de servicio multisectorial.
+          distribution_users_role_report:
+            label: Distribución de usuarios por rol
+            explanation: Muestra el número de usuarios con cada rol, desglosado por grupo de usuarios.
       matching_configuration:
         actions:
           manage:
