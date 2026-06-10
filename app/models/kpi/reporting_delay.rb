@@ -29,7 +29,7 @@ class Kpi::ReportingDelay < Kpi::BucketedSearch
       {
         delay:,
         total_incidents: count,
-        percentage: count.to_f / search.total
+        percentage: nan_safe_divide(count, search.total)
       }
     end
   end

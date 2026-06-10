@@ -8,12 +8,17 @@
 # workers in an agency.
 class Kpi::SupervisorToCaseworkerRatio < Kpi::Search
   SUPERVISOR_ROLES = [
-    'role-gbv-case-management-supervisor'
+    'role-gbv-case-management-supervisor',
+    'role-ftr-manager',
+    'role-lrf-administrator',
+    'role-lrf-manager',
+    'role-lrf-monitor'
   ].freeze
 
   CASE_WORKER_ROLES = %w[
     role-gbv-mobile-caseworker
     role-gbv-caseworker
+    role-ftr-worker
   ].freeze
 
   def supervisors
@@ -32,15 +37,22 @@ class Kpi::SupervisorToCaseworkerRatio < Kpi::Search
           ).count
   end
 
-  def ratio
-    @ratio ||= (supervisors.to_f / case_workers).rationalize
+  def ratio(supervisor_count, case_worker_count)
+    (supervisor_count.to_f / case_worker_count).rationalize
   end
 
   def to_json(*_args)
+    supervisor_count = supervisors
+    case_worker_count = case_workers
+
+    return { data: { supervisors: supervisor_count, case_workers: case_worker_count } } if supervisor_count.zero? || case_worker_count.zero?
+
+    ratio_value = ratio(supervisor_count, case_worker_count)
+
     {
       data: {
-        supervisors: ratio.numerator,
-        case_workers: ratio.denominator
+        supervisors: ratio_value.numerator,
+        case_workers: ratio_value.denominator
       }
     }
   end

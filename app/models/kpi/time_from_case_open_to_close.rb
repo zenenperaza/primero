@@ -32,7 +32,7 @@ class Kpi::TimeFromCaseOpenToClose < Kpi::BucketedSearch
                     .map do |delay, count|
       {
         time: delay,
-        percent: count.to_f / search.total
+        percent: nan_safe_divide(count, search.total)
       }
     end
   end
