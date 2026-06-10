@@ -1,0 +1,87 @@
+Respaldar el VPS
+
+docker compose -p primero exec postgres pg_dump -U primero primero_production > backup_vps_antes_update_$(date +%Y%m%d_%H%M).sql
+
+Actualizar desde Github
+
+cd ~/primero
+
+git status
+git fetch origin
+git pull origin main
+
+cd ~/primero/docker
+
+
+
+3. Reconstruir/levantar Primero
+
+REINICIAR 
+docker compose -p primero down 
+
+LEVANTAR
+docker compose -p primero \
+ --project-directory ../ \
+ --profile app \
+ --profile db \
+ --profile redis \
+ --profile worker \
+ --profile nginx \
+ -f docker-compose.yml \
+ -f docker-compose.db.yml \
+ -f docker-compose.local.yml \
+ up -d
+
+docker compose -p primero \
+--project-directory ../ \
+--profile app \
+--profile db \
+--profile redis \
+--profile worker \
+--profile nginx \
+-f docker-compose.yml \
+-f docker-compose.db.yml \
+-f docker-compose.local.yml \
+up -d --build
+
+
+VERIFICAR
+docker compose -p primero ps
+
+
+
+1. En tu PC local: generar dump
+cd ~/primero/docker
+
+docker compose -p primero exec postgres sh -c "pg_dump -U primero --encoding=UTF8 --no-owner --no-acl primero_production > /tmp/db_local.sql"
+docker compose -p primero cp postgres:/tmp/db_local.sql ./db_local.sql
+
+
+Sube db_local.sql al VPS en:
+
+/home/zenenperaza/db_local.sql
+
+cd ~/primero/docker
+
+docker compose -p primero stop application worker
+
+docker compose -p primero exec postgres psql -U primero -d primero_production -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+
+docker compose -p primero exec -T postgres psql -U primero -d primero_production -v ON_ERROR_STOP=1 < ~/db_local.sql
+
+docker compose -p primero start application worker
+docker compose -p primero restart
+
+
+5. Ejecutar migraciones
+docker compose -p primero exec application rails db:migrate
+
+6. Levantar servicios
+docker compose -p primero start application worker
+
+docker compose -p primero restart
+
+7. Verificar
+docker compose -p primero ps
+Luego abre:
+https://sistema.today
