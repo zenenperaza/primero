@@ -750,7 +750,7 @@ es:
     forms: pestaña de FORMULARIOS
     geographic_area: Área Geográfica
     group_overview_closed: Cerrado
-    group_overview_open: Abrir
+    group_overview_open: Abiertos
     high_level: Alto
     high_risk: Prioridad Alta
     immediate_response: Respuesta Inmediata
@@ -787,6 +787,7 @@ es:
     new_incident_assigned_to_you: Incidentes Nuevos Asignados
     new_last_week: Nuevo (útima semana)
     new_or_updated: Nuevo o Actualizado
+    recently_assigned_to_me: Asignados recientemente a mí
     new_referred: Nuevas Referencias
     new_service_provision: Nueva Prestación de Servicios
     new_this_week: Nuevo (esta semana)
@@ -2745,6 +2746,9 @@ es:
           approve_gbv_closure:
             explanation: Permite a un(a)  gerente aprobar el/la %{approval_label} para los casos de sus trabajadoras de casos.
             label: Aprobar formulario %{approval_label}
+          self_approve:
+            explanation: Por defecto, los usuarios no pueden aprobar sus propios casos. Con este permiso, un usuario puede aprobar cualquier caso al que tenga acceso, incluso si es el propietario del registro.
+            label: Aprobar mis propios casos
           assign:
             explanation: Permite a un(a) usuario(a) enviar un caso desde el/la propietario(a) de su registro original hacia cualquier otro/a usuario(a) en el sistema. No se necesita el consentimiento del niño, niña, o adolescente para esta acción. A diferencia de las transferencias, a el/la destinatario(a) no se le da la oportunidad de aceptar o rechazar la asignación.
             label: Asignar
