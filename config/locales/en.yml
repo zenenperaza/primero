@@ -188,7 +188,7 @@ en:
     guidance: Guidance
     guiding_questions: Guiding Questions
     import: Import
-    login: Log in
+    login: Iniciar sesión
     logout: Log out
     link: Link
     mark_for_mobile: Mark for mobile
@@ -986,8 +986,8 @@ en:
     address_fields: You need to address %{fields} fields on %{forms} forms
     address_form_fields: You need to address %{fields} fields on this form
     address_subform_fields: '%{subform} has %{fields} invalid fields'
-    error_401:  You have been logged out. Please log in again.
-    error_something_went_wrong: Something went wrong.
+    error_401: Se ha cerrado su sesión. Por favor inicie sesión nuevamente.
+    error_something_went_wrong: Ha ocurrido un error.
   error_page:
     not_authorized:
       code: 403
@@ -999,7 +999,7 @@ en:
       something_went_wrong: Sorry, Something went wrong!
   errors:
     api:
-      internal_server: Server Error
+      internal_server: Error del servidor
       user:
         disposable_email: "Looks like this is a temporary email provider. To keep accounts secure, please use your personal or work email."
         captcha_service_unavailable: "Verification service is currently unavailable. Please try submitting again: refreshing the page usually helps if the connection was interrupted."
@@ -2200,22 +2200,22 @@ en:
     unflag: Unflagging
     update: Updating
   login:
-    label: Login
+    label: Iniciar sesión
     password:
-      label: Password
+      label: Contraseña
     password_confirmation:
-      label: Password Confirmation
+      label: Confirmación de contraseña
     password_match:
-      label: Password Must Match
-    provider_title: with %{provider}
-    title: Log In
-    username: User Name
-    password_reset_modal: Reset Password
-    password_reset_modal_text: Primero will send a password reset link to your email address
-    password_reset_email: Email
-    forgot_password: Forgot your password?
+      label: La contraseña debe coincidir
+    provider_title: con %{provider}
+    title: Iniciar sesión
+    username: Nombre de usuario
+    password_reset_modal: Restablecer contraseña
+    password_reset_modal_text: Primero enviará un enlace para restablecer la contraseña a su dirección de correo electrónico
+    password_reset_email: Correo electrónico
+    forgot_password: ¿Olvidó su contraseña?
     email:
-      label: Email
+      label: Correo electrónico
   lookup:
     create: New Lookup
     enabled_label: Enabled?
