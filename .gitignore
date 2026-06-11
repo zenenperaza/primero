@@ -48,6 +48,8 @@ dev-node.json
 docker/production.env
 docker/local.env
 docker/certs/
+docs/*vps.env
+docs/*.env
 encrypted_file
 jmeter/*.csv
 jmeter/*.log
