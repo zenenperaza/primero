@@ -734,8 +734,8 @@ es:
     dash_shared_with_my_team_overview: Compartir con mi equipo
     dash_shared_with_others: Compartido Con Otro(a)s
     dash_national_admin_summary: Resumen de Administrador(a)
-    dash_violations_category_verification_status: Numero total de incidentes por estatus de verificación
-    dash_violations_category_region: Numero total de incidentes verificados por región
+    dash_violations_category_verification_status: Número total de incidentes por estatus de verificación
+    dash_violations_category_region: Número total de incidentes verificados por región
     dash_perpetrator_armed_force_group_party_names: Número total de incidentes por autor
     date: Fecha
     date_of_incident: Fecha del Incidente
