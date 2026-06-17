@@ -97,7 +97,13 @@ class Role < ApplicationRecord
       roles_list = options[:managed] ? list_managed(user) : all
       roles_list = roles_list.where(disabled: options[:disabled].values) if options[:disabled]
 
-      OrderByPropertyService.apply_order(roles_list, options)
+      return OrderByPropertyService.apply_order(roles_list, options) if options[:order_by].present?
+
+      order_lrf_roles_first(roles_list)
+    end
+
+    def order_lrf_roles_first(roles)
+      roles.order(Arel.sql("CASE WHEN LOWER(roles.name) LIKE 'lrf%' THEN 0 ELSE 1 END ASC, LOWER(roles.name) ASC"))
     end
 
     def list_managed(user)
