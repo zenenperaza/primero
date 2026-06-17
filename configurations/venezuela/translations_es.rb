@@ -715,6 +715,194 @@ update_lookup_es(
   }
 )
 
+[
+  [
+    'lookup-location-type',
+    'Tipo de ubicación',
+    {
+      'country' => 'País',
+      'region' => 'Región',
+      'province' => 'Provincia',
+      'district' => 'Distrito',
+      'governorate' => 'Gobernación',
+      'chiefdom' => 'Jefatura',
+      'state' => 'Estado',
+      'city' => 'Ciudad',
+      'county' => 'Condado',
+      'camp' => 'Campamento',
+      'site' => 'Sitio',
+      'village' => 'Aldea',
+      'zone' => 'Zona',
+      'sub_district' => 'Subdistrito',
+      'locality' => 'Localidad',
+      'prefecture' => 'Prefectura',
+      'sub-prefecture' => 'Subprefectura',
+      'commune' => 'Comuna',
+      'payam' => 'Payam',
+      'departement_fr' => 'Departamento',
+      'region_fr' => 'Región',
+      'wilaya' => 'Wilaya',
+      'division_fr' => 'División',
+      'moughataa' => 'Moughataa',
+      'sub_division' => 'Subdivisión',
+      'other' => 'Otro'
+    }
+  ],
+  [
+    'lookup-nationality',
+    'Nacionalidad',
+    Lookup.find_by!(unique_id: 'lookup-nationality').lookup_values_en.to_h do |value|
+      [value['id'], value['display_text'].sub('Nationality', 'Nacionalidad')]
+    end
+  ],
+  [
+    'lookup-conference-case-status',
+    'Estado del caso en conferencia',
+    {
+      'open' => 'El caso permanecerá abierto',
+      'closed' => 'El caso se cerrará',
+      'transferred' => 'El caso será transferido',
+      'other' => 'Otro'
+    }
+  ],
+  [
+    'lookup-armed-force-group-type',
+    'Tipo de fuerza o grupo armado',
+    {
+      'national_army' => 'Ejército nacional',
+      'security_forces' => 'Fuerzas de seguridad',
+      'international_forces' => 'Fuerzas internacionales',
+      'police_forces' => 'Fuerzas policiales',
+      'para-military_forces' => 'Fuerzas paramilitares',
+      'unknown' => 'Desconocido',
+      'other' => 'Otro'
+    }
+  ],
+  [
+    'lookup-armed-force-group-name',
+    'Nombre de fuerza o grupo armado',
+    {
+      'armed_force_or_group_1' => 'Fuerza o grupo armado 1',
+      'armed_force_or_group_2' => 'Fuerza o grupo armado 2',
+      'armed_force_or_group_3' => 'Fuerza o grupo armado 3',
+      'other_please_specify' => 'Otro, especifique'
+    }
+  ],
+  [
+    'lookup-yes-no-unknown',
+    'Sí, no o desconocido',
+    { 'true' => 'Sí', 'false' => 'No', 'unknown' => 'Desconocido' }
+  ],
+  [
+    'lookup-yes-no-undecided',
+    'Sí, no o indeciso',
+    { 'true' => 'Sí', 'false' => 'No', 'undecided' => 'Indeciso' }
+  ],
+  [
+    'lookup-yes-no-duration',
+    'Sí, no y duración',
+    {
+      'yes_short_term' => 'Sí, corto plazo',
+      'yes_long_term' => 'Sí, largo plazo',
+      'no' => 'No'
+    }
+  ],
+  [
+    'lookup-gbv-approval-types',
+    'Tipo de aprobación para usuarios GBV',
+    { 'case_plan' => 'Plan del caso', 'closure' => 'Cierre' }
+  ],
+  [
+    'lookup-service-referred',
+    'Servicio referido',
+    {
+      'referred' => 'Referido',
+      'service_provided_by_your_agency' => 'Servicio prestado por su agencia',
+      'services_already_received_from_another_agency' => 'Servicios ya recibidos de otra agencia',
+      'service_not_applicable' => 'Servicio no aplicable',
+      'referral_declined_by_survivor' => 'Derivación rechazada por la persona sobreviviente',
+      'service_unavailable' => 'Servicio no disponible'
+    }
+  ],
+  [
+    'lookup-marital-status-with-spouse',
+    'Estado civil',
+    {
+      'single' => 'Soltero',
+      'married_cohabitating' => 'Casado o en convivencia',
+      'divorced_separated' => 'Divorciado o separado',
+      'widowed' => 'Viudo',
+      'with_spouse' => 'Con pareja o cónyuge'
+    }
+  ],
+  [
+    'lookup-age-group-type',
+    'Tipo de grupo de edad',
+    { 'adult' => 'Adulto', 'minor' => 'Menor de edad', 'unknown' => 'Desconocido' }
+  ],
+  [
+    'lookup-assessment-progress',
+    'Progreso de la evaluación',
+    { 'n_a' => 'No aplica', 'in_progress' => 'En progreso', 'met' => 'Cumplido' }
+  ],
+  [
+    'lookup-further-action_needed',
+    'Acción adicional necesaria',
+    {
+      'no_further_action_needed' => 'No se requiere acción adicional',
+      'ongoing_monitoring' => 'Monitoreo en curso',
+      'urgent_intervention' => 'Intervención urgente'
+    }
+  ],
+  [
+    'lookup-agency-office',
+    'Oficina de la agencia',
+    {
+      'agency_office_1' => 'Oficina de la agencia 1',
+      'agency_office_2' => 'Oficina de la agencia 2',
+      'agency_office_3' => 'Oficina de la agencia 3',
+      'agency_office_4' => 'Oficina de la agencia 4',
+      'agency_office_5' => 'Oficina de la agencia 5'
+    }
+  ],
+  [
+    'lookup-registry-status',
+    'Estado del registro',
+    { 'open' => 'Abierto', 'closed' => 'Cerrado', 'duplicate' => 'Duplicado' }
+  ],
+  [
+    'lookup-registry-category',
+    'Categoría del registro',
+    {
+      'registry_category1' => 'Categoría del registro 1',
+      'registry_category2' => 'Categoría del registro 2',
+      'registry_category3' => 'Categoría del registro 3'
+    }
+  ],
+  [
+    'lookup-family-type',
+    'Tipo de familia',
+    {
+      'family_type1' => 'Tipo de familia 1',
+      'family_type2' => 'Tipo de familia 2',
+      'family_type3' => 'Tipo de familia 3'
+    }
+  ],
+  [
+    'lookup-form-group-cp-tracing-request',
+    'Grupos de formularios - Solicitud de localización',
+    {
+      'record_owner' => 'Responsable del registro',
+      'inquirer' => 'Solicitante',
+      'tracing_request' => 'Solicitud de localización',
+      'photos_audio' => 'Fotos y audio',
+      'other_reportable_fields' => 'Otros campos de reporte'
+    }
+  ]
+].each do |unique_id, name, values|
+  update_lookup_es(unique_id, name:, values:)
+end
+
 {
   'lookup-ethnicity' => ['Etnia', 'Etnia'],
   'lookup-language' => ['Idioma', 'Idioma'],
