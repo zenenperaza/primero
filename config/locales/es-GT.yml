@@ -481,6 +481,11 @@ es-GT:
     transfer_rejected: Al hacer clic en "Rechazar" indica que en este momento usted no está preparado(a) para aceptar la responsabilidad de esta Referencia. Por favor indique la razón por la que rechaza este Caso; una vez haga clic en "Rechazar" ya no tendrá acceso al registro de este Caso.
     view_name: ' Ver Nombre'
     sort_by: Ordenar por
+  case_relationships:
+    search_for: Buscar %{record_type}
+    add_new:
+      label: Agregar
+      disabled: Guarde el caso. Luego podra editarlo y vincularlo con otros casos.
   change_logs:
     filters:
       form: Formulario
@@ -1336,6 +1341,7 @@ es-GT:
       incident: Incidente
       individual_victim: Víctima Individual
       potential_match: Posible Concordancia
+      case_relationships: Casos vinculados
       record_information: Información del Registro
       referrals: Referencias
       reportable_follow_up: Seguimiento
