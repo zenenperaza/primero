@@ -244,16 +244,23 @@ Lookup.create_or_update!(
   unique_id: 'lookup-nationality',
   name_en: 'Nationality',
   lookup_values_en: [
-    { id: 'nationality1', display_text: 'Nationality1' }.with_indifferent_access,
-    { id: 'nationality2', display_text: 'Nationality2' }.with_indifferent_access,
-    { id: 'nationality3', display_text: 'Nationality3' }.with_indifferent_access,
-    { id: 'nationality4', display_text: 'Nationality4' }.with_indifferent_access,
-    { id: 'nationality5', display_text: 'Nationality5' }.with_indifferent_access,
-    { id: 'nationality6', display_text: 'Nationality6' }.with_indifferent_access,
-    { id: 'nationality7', display_text: 'Nationality7' }.with_indifferent_access,
-    { id: 'nationality8', display_text: 'Nationality8' }.with_indifferent_access,
-    { id: 'nationality9', display_text: 'Nationality9' }.with_indifferent_access,
-    { id: 'nationality10', display_text: 'Nationality10' }.with_indifferent_access
+    { id: 'venezuela', display_text: 'Venezuela' }.with_indifferent_access,
+    { id: 'colombia', display_text: 'Colombia' }.with_indifferent_access,
+    { id: 'peru', display_text: 'Peru' }.with_indifferent_access,
+    { id: 'ecuador', display_text: 'Ecuador' }.with_indifferent_access,
+    { id: 'brasil', display_text: 'Brasil' }.with_indifferent_access,
+    { id: 'chile', display_text: 'Chile' }.with_indifferent_access,
+    { id: 'argentina', display_text: 'Argentina' }.with_indifferent_access,
+    { id: 'bolivia', display_text: 'Bolivia' }.with_indifferent_access,
+    { id: 'panama', display_text: 'Panama' }.with_indifferent_access,
+    { id: 'republica_dominicana', display_text: 'Dominican Republic' }.with_indifferent_access,
+    { id: 'cuba', display_text: 'Cuba' }.with_indifferent_access,
+    { id: 'haiti', display_text: 'Haiti' }.with_indifferent_access,
+    { id: 'guyana', display_text: 'Guyana' }.with_indifferent_access,
+    { id: 'trinidad_tobago', display_text: 'Trinidad and Tobago' }.with_indifferent_access,
+    { id: 'otro', display_text: 'Other' }.with_indifferent_access,
+    { id: 'no_sabe', display_text: 'Unknown' }.with_indifferent_access,
+    { id: 'no_responde', display_text: 'Declined to answer' }.with_indifferent_access
   ]
 )
 
@@ -321,16 +328,19 @@ Lookup.create_or_update!(
   unique_id: 'lookup-language',
   name_en: 'Language',
   lookup_values_en: [
-    { id: 'language1', display_text: 'Language1' }.with_indifferent_access,
-    { id: 'language2', display_text: 'Language2' }.with_indifferent_access,
-    { id: 'language3', display_text: 'Language3' }.with_indifferent_access,
-    { id: 'language4', display_text: 'Language4' }.with_indifferent_access,
-    { id: 'language5', display_text: 'Language5' }.with_indifferent_access,
-    { id: 'language6', display_text: 'Language6' }.with_indifferent_access,
-    { id: 'language7', display_text: 'Language7' }.with_indifferent_access,
-    { id: 'language8', display_text: 'Language8' }.with_indifferent_access,
-    { id: 'language9', display_text: 'Language9' }.with_indifferent_access,
-    { id: 'language10', display_text: 'Language10' }.with_indifferent_access
+    { id: 'espanol', display_text: 'Spanish' }.with_indifferent_access,
+    { id: 'portugues', display_text: 'Portuguese' }.with_indifferent_access,
+    { id: 'ingles', display_text: 'English' }.with_indifferent_access,
+    { id: 'wayuu', display_text: 'Wayuu' }.with_indifferent_access,
+    { id: 'warao', display_text: 'Warao' }.with_indifferent_access,
+    { id: 'pemon', display_text: 'Pemon' }.with_indifferent_access,
+    { id: 'piaroa', display_text: 'Piaroa' }.with_indifferent_access,
+    { id: 'yanomami', display_text: 'Yanomami' }.with_indifferent_access,
+    { id: 'arabe', display_text: 'Arabic' }.with_indifferent_access,
+    { id: 'italiano', display_text: 'Italian' }.with_indifferent_access,
+    { id: 'otro', display_text: 'Other' }.with_indifferent_access,
+    { id: 'no_sabe', display_text: 'Unknown' }.with_indifferent_access,
+    { id: 'no_responde', display_text: 'Declined to answer' }.with_indifferent_access
   ]
 )
 

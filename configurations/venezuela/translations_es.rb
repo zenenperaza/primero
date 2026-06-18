@@ -20,10 +20,14 @@ end
 
 SECTION_NAMES_ES = {
   'Record Owner' => 'Responsable del registro',
+  'CP Record Owner' => 'Responsable del registro',
   'Inquirer' => 'Solicitante',
   'Tracing Request' => 'Solicitud de localización',
+  'CP Incident' => 'Incidente CP',
   'Record Information' => 'Información del registro',
   'Incident Details' => 'Detalles del incidente',
+  'Perpetrator Details' => 'Detalles del presunto responsable',
+  'CP Individual Details' => 'Detalles de la persona',
   'Summary' => 'Resumen',
   'Approvals' => 'Aprobaciones',
   'Registry Details' => 'Detalles del registro',
@@ -157,6 +161,68 @@ FIELD_LABELS_ES = {
   "Record Owner's Location" => 'Ubicación responsable del registro',
   'Does this case have a case plan?' => '¿Este caso tiene un plan?',
   'Workflow Status' => 'Estado del flujo de trabajo',
+  'Record Status' => 'Estado del registro',
+  'Registration Date' => 'Fecha de registro',
+  'Family ID' => 'ID de familia',
+  'Family Type' => 'Tipo de familia',
+  'Family Name' => 'Nombre de la familia',
+  'Family Number' => 'Número de familia',
+  'Family Address' => 'Dirección de la familia',
+  'Family Landmark' => 'Punto de referencia de la familia',
+  'Family Location' => 'Ubicación de la familia',
+  'Family Telephone' => 'Teléfono de la familia',
+  'Languages spoken' => 'Idiomas hablados',
+  'Size of Family' => 'Tamaño de la familia',
+  'Notes on Family' => 'Notas sobre la familia',
+  'Additional Notes on the family' => 'Notas adicionales sobre la familia',
+  'Family Member' => 'Miembro de la familia',
+  'Primary reason for family closure' => 'Motivo principal del cierre familiar',
+  'Provide further details on reason for family closure' => 'Proporcione más detalles sobre el motivo del cierre familiar',
+  'Reasons for collecting and retaining information on this Family' =>
+    'Motivos para recopilar y conservar información sobre esta familia',
+  'Provide the name of the individual who provided the consent' =>
+    'Indique el nombre de la persona que dio el consentimiento',
+  'Reason for updating consent' => 'Motivo para actualizar el consentimiento',
+  'Consent has been given for the family to participate in the case management process' =>
+    'Se otorgó consentimiento para que la familia participe en el proceso de gestión del caso',
+  'Consent has been given to the caseworker assigned to the case to collect and store personal information about the case (e.g., name, photo, family details).' =>
+    'Se otorgó consentimiento para que el trabajador asignado recopile y almacene información personal del caso, por ejemplo nombre, fotografía y datos familiares.',
+  'The individual providing consent agrees to share information about this case with other service providers according to the details described below.' =>
+    'La persona que otorga el consentimiento acepta compartir información de este caso con otros proveedores de servicios según los detalles indicados abajo.',
+  'Information can be shared for the following services' =>
+    'La información puede compartirse para los siguientes servicios',
+  'The individual providing consent agrees to share information about this case with UNHCR for the purposes of refugee protection case management.' =>
+    'La persona que otorga el consentimiento acepta compartir información de este caso con ACNUR para la gestión de casos de protección de refugiados.',
+  'Consent has been given to share the information collected with' =>
+    'Se otorgó consentimiento para compartir la información recopilada con',
+  'If information can be shared with others, please specify who' =>
+    'Si la información puede compartirse con otras personas, especifique con quién',
+  'Withhold specific information from' => 'Restringir información específica a',
+  'What specific information should be withheld' => 'Qué información específica debe restringirse',
+  'What is their role in the family?' => 'Cuál es su rol en la familia',
+  'Is this person the caregiver for one of the children in this family?' =>
+    '¿Esta persona es cuidadora de alguno de los niños de esta familia?',
+  'Notes on their role in the family.' => 'Notas sobre su rol en la familia',
+  'Additional notes on the family member.' => 'Notas adicionales sobre el miembro de la familia',
+  'List any agency identifiers as a comma separated list' =>
+    'Liste cualquier identificador de agencia separado por comas',
+  'Other names or spellings known by' => 'Otros nombres o formas de escribir el nombre',
+  'National ID' => 'Documento nacional de identidad',
+  'UNHCR Individual ID' => 'ID individual de ACNUR',
+  'Other ID' => 'Otro ID',
+  'Ethnicity' => 'Etnia',
+  'Current Address (if different from the child)' =>
+    'Dirección actual, si es diferente a la del niño',
+  'Is this a permanent location?' => '¿Esta ubicación es permanente?',
+  'Current Landmark' => 'Punto de referencia actual',
+  'Last Known Address' => 'Última dirección conocida',
+  'Last Known Location' => 'Última ubicación conocida',
+  'Telephone / other contact details' => 'Teléfono u otros datos de contacto',
+  'Notes on the Family Location and Telephone' =>
+    'Notas sobre la ubicación y el teléfono de la familia',
+  'Notes entered by' => 'Notas ingresadas por',
+  'Document' => 'Documento',
+  'Created at' => 'Creado el',
   'Current Owner' => 'Responsable actual',
   'Field/Case/Social Worker' => 'Trabajador de campo, caso o trabajo social',
   'Caseworker Code' => 'Código del trabajador del caso',
@@ -222,6 +288,7 @@ FIELD_LABELS_ES = {
   'Implementation Timeframe' => 'Plazo de implementación',
   'Implementing Agency' => 'Agencia implementadora',
   'Incident' => 'Incidente',
+  'Incident Status' => 'Estado del incidente',
   'Is the referral or transfer to a remote system?' => '¿La derivación o transferencia es hacia un sistema remoto?',
   'Is this family member alive?' => '¿Este familiar está vivo?',
   'Is this person the caregiver?' => '¿Esta persona es el cuidador?',
@@ -247,6 +314,7 @@ FIELD_LABELS_ES = {
   'Referred?' => '¿Derivado?',
   'Relationship to child' => 'Relación con el niño',
   'Relationship with the victim' => 'Relación con la víctima',
+  'Relationship with the abused' => 'Relación con la persona afectada',
   'Remote User' => 'Usuario remoto',
   'Remote User Agency' => 'Agencia del usuario remoto',
   'Reopened by' => 'Reabierto por',
@@ -257,6 +325,7 @@ FIELD_LABELS_ES = {
   'Service delivery location' => 'Lugar de prestación del servicio',
   'Service implemented' => 'Servicio implementado',
   'Service provider name' => 'Nombre del proveedor del servicio',
+  'Educational Status' => 'Nivel educativo',
   'Social Status' => 'Estado social',
   'Status' => 'Estado',
   'Subject' => 'Asunto',
@@ -290,7 +359,25 @@ HELP_TEXT_ES = {
   'Enter the Implementation Timeframe for the service; the timeframe is used in the dashboard to indicate if services are overdue.' =>
     'Indique el plazo de implementación del servicio; se utiliza en el panel para mostrar si está vencido.',
   'Only include if the person being referred is a child' => 'Incluir solo si la persona derivada es un niño',
-  'e.g., nickname, second family name' => 'Por ejemplo, apodo o segundo apellido'
+  'e.g., nickname, second family name' => 'Por ejemplo, apodo o segundo apellido',
+  'Date the Family record was created.' => 'Fecha en que se creó el registro de la familia.',
+  'You only need to complete this field if you are changing an entry you made previously.' =>
+    'Solo debe completar este campo si está cambiando una entrada que hizo anteriormente.',
+  'If consent has not been provided, do not select' =>
+    'Si no se ha otorgado consentimiento, no seleccione esta opción.',
+  'This includes sharing information with other organizations providing services, this does not include sharing information with UNHCR.' =>
+    'Esto incluye compartir información con otras organizaciones proveedoras de servicios; no incluye compartir información con ACNUR.',
+  'This field can be copied to/from the Case but is not a shared field and can be edited on the Family record.' =>
+    'Este campo puede copiarse desde o hacia el caso, pero no es un campo compartido y puede editarse en el registro de familia.',
+  'This field is not shared with the case records.' =>
+    'Este campo no se comparte con los registros de caso.',
+  'Include date of death if known ' => 'Incluya la fecha de fallecimiento si se conoce.',
+  'If separated from child, last known address' =>
+    'Si está separado del niño, última dirección conocida.',
+  'Additional notes on the family not shared with the associated case records.' =>
+    'Notas adicionales sobre la familia que no se comparten con los casos asociados.',
+  'Note here if the family has multiple addresses and / or multiple telephone numbers that should be used.' =>
+    'Indique aquí si la familia tiene varias direcciones o varios teléfonos que deban utilizarse.'
 }.freeze
 
 FORM_GROUPS_ES = {
@@ -314,7 +401,7 @@ FORM_GROUPS_ES = {
   'other_reportable_fields' => 'Otros campos de reporte'
 }.freeze
 
-FormSection.where(parent_form: %w[case tracing_request]).find_each do |section|
+FormSection.where(parent_form: %w[case tracing_request incident family]).find_each do |section|
   section_name = SECTION_NAMES_ES[section.name_en]
   update_localized_property(section, :name, section_name) if section_name
 
@@ -757,9 +844,25 @@ update_lookup_es(
   [
     'lookup-nationality',
     'Nacionalidad',
-    Lookup.find_by!(unique_id: 'lookup-nationality').lookup_values_en.to_h do |value|
-      [value['id'], value['display_text'].sub('Nationality', 'Nacionalidad')]
-    end
+    {
+      'venezuela' => 'Venezuela',
+      'colombia' => 'Colombia',
+      'peru' => 'Perú',
+      'ecuador' => 'Ecuador',
+      'brasil' => 'Brasil',
+      'chile' => 'Chile',
+      'argentina' => 'Argentina',
+      'bolivia' => 'Bolivia',
+      'panama' => 'Panamá',
+      'republica_dominicana' => 'República Dominicana',
+      'cuba' => 'Cuba',
+      'haiti' => 'Haití',
+      'guyana' => 'Guyana',
+      'trinidad_tobago' => 'Trinidad y Tobago',
+      'otro' => 'Otro',
+      'no_sabe' => 'No sabe',
+      'no_responde' => 'No responde'
+    }
   ],
   [
     'lookup-conference-case-status',
@@ -909,16 +1012,33 @@ update_lookup_es(
   update_lookup_es(unique_id, name:, values:)
 end
 
-{
-  'lookup-ethnicity' => ['Etnia', 'Etnia'],
-  'lookup-language' => ['Idioma', 'Idioma'],
-  'lookup-religion' => ['Religión', 'Religión']
-}.each do |unique_id, (name, value_prefix)|
+update_lookup_es(
+  'lookup-language',
+  name: 'Idioma',
+  values: {
+    'espanol' => 'Español',
+    'portugues' => 'Portugués',
+    'ingles' => 'Inglés',
+    'wayuu' => 'Wayuu',
+    'warao' => 'Warao',
+    'pemon' => 'Pemón',
+    'piaroa' => 'Piaroa',
+    'yanomami' => 'Yanomami',
+    'arabe' => 'Árabe',
+    'italiano' => 'Italiano',
+    'otro' => 'Otro',
+    'no_sabe' => 'No sabe',
+    'no_responde' => 'No responde'
+  }
+)
+
+%w[lookup-ethnicity lookup-religion].each do |unique_id|
   lookup = Lookup.find_by!(unique_id:)
-  values = lookup.lookup_values_en.to_h do |value|
-    [value['id'], value['display_text'].sub(/[A-Za-z]+/, value_prefix)]
-  end
-  update_lookup_es(unique_id, name:, values:)
+  update_lookup_es(
+    unique_id,
+    name: lookup.name_i18n['es'] || lookup.name_i18n['en'],
+    values: lookup.lookup_values_i18n.to_h { |value| [value['id'], value.dig('display_text', 'es') || value.dig('display_text', 'en')] }
+  )
 end
 
 unhcr_codes = Lookup.find_by!(unique_id: 'lookup-unhcr-needs-codes')
