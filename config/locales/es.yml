@@ -54,6 +54,7 @@ es:
     services_from_case_creation_success: Registro de Prestación de Servicios creado correctamente.
     services_section_from_case: Agregar Prestación de Servicios
     mark_for_offline: Marca para fuera de línea
+    attribute: Atribuir caso
   agencies:
     label: Agencia
     translations:
@@ -125,6 +126,7 @@ es:
     add_another_option: Agregar otra opción
     add_note: Agregar Notas
     apply: Aplicar
+    attribute: Atribuir
     approvals: Aprobaciones
     approve_action_plan: Aprobar Plan de Acción
     approve_bia: Aprobar Interés Superior del Niño, Niña, o Adolescente (BIA)
@@ -360,6 +362,15 @@ es:
     enable_dialog_title: Habilitar Caso
     enable_success: Caso habilitado correctamente
     export: Exportar
+    attribute:
+      name: Nombre
+      email: Correo electrónico
+      success: Caso atribuido correctamente
+      title: Atribuir caso
+      text: Seleccione al usuario que identificó este caso. Si el sistema permite el autorregistro, este usuario podrá acceder al registro como "Mi caso" cuando inicie sesión.
+      confirm_title: Confirmar atribución
+      confirm_text: ¿Está seguro de que desea atribuir este caso al usuario con los siguientes datos?
+      identified_by_placeholder: Escriba al menos dos caracteres para buscar un usuario.
     mark_for_offline:
       title: Marca para fuera de línea
       text: ¿Está seguro(a) de que quiere marcar estos Casos para usarlos cuando esté desconectado(a)?
