@@ -98,10 +98,12 @@ function Container({ mode }) {
     adminLevelMap
   });
 
+  const isPresent = value => value !== null && value !== undefined && value !== "";
+
   const initialValues = isCopiedRole
     ? copiedRole?.toJS()
     : groupSelectedIdsByParentForm(
-        role.filter(prop => Boolean(prop)),
+        role.filter(prop => isPresent(prop)),
         assignableForms
       ).toJS();
 

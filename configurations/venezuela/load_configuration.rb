@@ -18,6 +18,7 @@ I18n.available_locales = configured_locales
 I18n.default_locale = configured_default_locale
 
 load File.join(__dir__, 'translations_es.rb')
+load File.join(__dir__, 'lrf_role_permissions.rb')
 # The custom LRF Tracing Request forms are backed up in
 # ftr_solicitudes_localizacion.rb and can be loaded later when the workflow is
 # ready to be installed again.
@@ -93,7 +94,6 @@ unless locations_importer.errors.empty?
 end
 
 puts 'Configuring ASONACOP LRF agency, territorial groups, roles and users'
-cp_module = PrimeroModule.cp
 asonacop = Agency.create_or_update!(
   unique_id: 'LRF',
   agency_code: 'LRF',
@@ -104,7 +104,6 @@ asonacop = Agency.create_or_update!(
   disabled: false,
   exclude_agency_from_lookups: false
 )
-ftr_forms = FormSection.where(parent_form: 'tracing_request')
 ftr_group = UserGroup.create_or_update!(
   unique_id: 'usergroup-primero-ftr',
   name: 'LRF Nacional',
@@ -131,131 +130,9 @@ territorial_groups = Location.where(admin_level: 1, location_code: lrf_territori
   )
 end
 
-lrf_tracing_manage = [
-  Permission.new(
-    resource: Permission::TRACING_REQUEST,
-    actions: [Permission::MANAGE, Permission::VIEW_PHOTO, Permission::VIEW_AUDIO]
-  ),
-  Permission.new(resource: Permission::POTENTIAL_MATCH, actions: [Permission::MANAGE]),
-  Permission.new(resource: Permission::CASE, actions: [Permission::READ, Permission::FIND_TRACING_MATCH]),
-  Permission.new(
-    resource: Permission::DASHBOARD,
-    actions: [
-      Permission::DASH_MATCHING_RESULTS,
-      Permission::DASH_GROUP_OVERVIEW,
-      Permission::DASH_REPORTING_LOCATION,
-      Permission::DASH_FLAGS
-    ]
-  )
-]
-lrf_tracing_supervise = [
-  Permission.new(
-    resource: Permission::TRACING_REQUEST,
-    actions: [
-      Permission::READ,
-      Permission::EXPORT_LIST_VIEW,
-      Permission::EXPORT_CSV,
-      Permission::EXPORT_EXCEL,
-      Permission::EXPORT_PDF,
-      Permission::CHANGE_LOG,
-      Permission::ACCESS_LOG,
-      Permission::VIEW_PHOTO,
-      Permission::VIEW_AUDIO
-    ]
-  ),
-  Permission.new(
-    resource: Permission::POTENTIAL_MATCH,
-    actions: [Permission::READ, Permission::VIEW_PHOTO, Permission::VIEW_AUDIO]
-  )
-]
-lrf_case_approval_actions = [
-  Permission::READ,
-  Permission::FIND_TRACING_MATCH,
-  Permission::APPROVE_ASSESSMENT,
-  Permission::APPROVE_CASE_PLAN,
-  Permission::APPROVE_CLOSURE,
-  Permission::APPROVE_ACTION_PLAN,
-  Permission::CHANGE_LOG
-]
-
-lrf_administrator = Role.create_or_update!(
-  unique_id: 'role-lrf-administrator',
-  name: 'Administrador LRF',
-  description: 'Administra a nivel nacional usuarios, roles, grupos y solicitudes LRF',
-  permissions: lrf_tracing_manage + [
-    Permission.new(resource: Permission::USER, actions: [Permission::MANAGE]),
-    Permission.new(resource: Permission::USER_GROUP, actions: [Permission::MANAGE]),
-    Permission.new(resource: Permission::ROLE, actions: [Permission::READ, Permission::CREATE, Permission::WRITE, Permission::ASSIGN, Permission::COPY]),
-    Permission.new(resource: Permission::AGENCY, actions: [Permission::READ, Permission::WRITE]),
-    Permission.new(resource: Permission::REPORT, actions: [Permission::MANAGE]),
-    Permission.new(resource: Permission::AUDIT_LOG, actions: [Permission::READ])
-  ],
-  group_permission: Permission::ALL,
-  is_manager: true,
-  modules: [cp_module],
-  form_sections: ftr_forms
-)
-
-lrf_monitor = Role.create_or_update!(
-  unique_id: 'role-lrf-monitor',
-  name: 'Monitor LRF',
-  description: 'Monitorea y gestiona todas las solicitudes LRF a nivel nacional',
-  permissions: lrf_tracing_manage + [
-    Permission.new(resource: Permission::REPORT, actions: [Permission::READ])
-  ],
-  group_permission: Permission::ALL,
-  modules: [cp_module],
-  form_sections: ftr_forms
-)
-
-lrf_regional_coordinator = Role.create_or_update!(
-  unique_id: 'role-ftr-manager',
-  name: 'Coordinador Regional LRF',
-  description: 'Gestiona las solicitudes LRF de los grupos territoriales asignados',
-  permissions: lrf_tracing_manage + [
-    Permission.new(resource: Permission::USER, actions: [Permission::READ]),
-    Permission.new(resource: Permission::USER_GROUP, actions: [Permission::READ]),
-    Permission.new(resource: Permission::REPORT, actions: [Permission::READ])
-  ],
-  group_permission: Permission::GROUP,
-  is_manager: true,
-  modules: [cp_module],
-  form_sections: ftr_forms
-)
-
-lrf_field_coordinator = Role.create_or_update!(
-  unique_id: 'role-ftr-worker',
-  name: 'Coordinador Terreno LRF',
-  description: 'Registra y gestiona las solicitudes LRF del estado o grupo territorial asignado',
-  permissions: lrf_tracing_manage,
-  group_permission: Permission::GROUP,
-  modules: [cp_module],
-  form_sections: ftr_forms
-)
-
-lrf_manager = Role.create_or_update!(
-  unique_id: 'role-lrf-manager',
-  name: 'Gerente LRF',
-  description: 'Supervisa nacionalmente y aprueba casos vinculados al flujo LRF',
-  permissions: lrf_tracing_supervise + [
-    Permission.new(resource: Permission::CASE, actions: lrf_case_approval_actions),
-    Permission.new(resource: Permission::REPORT, actions: [Permission::READ, Permission::GROUP_READ]),
-    Permission.new(
-      resource: Permission::DASHBOARD,
-      actions: [
-        Permission::DASH_APPROVALS_ASSESSMENT,
-        Permission::DASH_APPROVALS_CASE_PLAN,
-        Permission::DASH_APPROVALS_CLOSURE,
-        Permission::DASH_APPROVALS_ACTION_PLAN,
-        Permission::DASH_NATIONAL_ADMIN_SUMMARY
-      ]
-    )
-  ],
-  group_permission: Permission::ALL,
-  is_manager: true,
-  modules: [cp_module],
-  form_sections: ftr_forms
-)
+lrf_roles = VenezuelaLrfRolePermissions.apply!
+lrf_field_coordinator = lrf_roles.fetch(:field_coordinator)
+lrf_manager = lrf_roles.fetch(:manager)
 
 [
   ['primero_ftr', 'Coordinador Terreno LRF', lrf_field_coordinator, 'PRIMERO_FTR_WORKER'],

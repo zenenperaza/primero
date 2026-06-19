@@ -151,7 +151,7 @@ function SelectFieldContainer({
       name,
       multiSelect
         ? data?.map(selected => (typeof selected === "object" ? selected?.id : selected))
-        : data?.id || defaultEmptyValue,
+        : data?.id ?? defaultEmptyValue,
       false
     );
 

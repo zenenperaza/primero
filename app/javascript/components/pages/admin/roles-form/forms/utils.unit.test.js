@@ -5,7 +5,12 @@ import { Map } from "immutable";
 import { buildAdminLevelSelect, buildPermissionOptions } from "./utils";
 
 describe("pages/admin/<RolesForm>/forms - utils", () => {
-  const i18n = { t: label => label };
+  const translations = {
+    "location.base_types.province": "Provincia",
+    "location.base_types.district": "Distrito",
+    "location.base_types.sub-district": "Subdistrito"
+  };
+  const i18n = { t: label => translations[label] || label };
   const approvalsLabels = {
     assessment: "Assessment",
     gbv_closure: "GBV Closure"
@@ -44,22 +49,27 @@ describe("pages/admin/<RolesForm>/forms - utils", () => {
   describe("buildAdminLevelSelect", () => {
     const adminLevelMap = Map({
       1: ["province"],
-      2: ["district", "test"]
+      2: ["district", "test"],
+      3: ["sub_district"]
     });
 
     it("should return an array of objects to be used as option_strings_text", () => {
       const expected = [
         {
           id: 1,
-          display_text: "Province"
+          display_text: "Provincia"
         },
         {
           id: 2,
-          display_text: "District, Test"
+          display_text: "Distrito, Test"
+        },
+        {
+          id: 3,
+          display_text: "Subdistrito"
         }
       ];
 
-      expect(buildAdminLevelSelect(adminLevelMap)).toEqual(expected);
+      expect(buildAdminLevelSelect(adminLevelMap, i18n)).toEqual(expected);
     });
   });
 });

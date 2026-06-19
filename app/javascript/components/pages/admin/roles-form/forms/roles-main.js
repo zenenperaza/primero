@@ -72,7 +72,7 @@ export default (groupPermissions, i18n, adminLevelMap) => {
         tooltip: i18n.t("permissions.resource.reporting_location_level.explanation"),
         name: FIELD_NAMES.reportingLocationLevel,
         type: SELECT_FIELD,
-        option_strings_text: buildAdminLevelSelect(adminLevelMap)
+        option_strings_text: buildAdminLevelSelect(adminLevelMap, i18n)
       })
     ]
   });
