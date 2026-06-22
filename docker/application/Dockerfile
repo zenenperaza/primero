@@ -126,6 +126,7 @@ RUN set -euox pipefail \
         ; rm -rf /var/cache/apk/*
 
 COPY [ "docker/sub.sh", "docker/application/root/", "/" ]
+RUN sed -i 's/\r$//' /entrypoint.sh /sub.sh
 COPY --from=build-env /usr/local/bundle/ /usr/local/bundle/
 COPY --from=build-env $APP_ROOT $APP_ROOT
 
@@ -138,6 +139,8 @@ RUN set -euox pipefail \
         ; adduser --disabled-password --gecos '' -u $USER_ID -G docker-primero docker-primero \
         ; mkdir -p /srv/primero/application/storage \
         ; chmod -R 700 /srv/primero/application/storage \
+        ; find "$APP_ROOT/bin" -type f -exec sed -i 's/\r$//' {} + \
+        ; chmod -R u+rwX "$APP_ROOT" \
         ; chown -R docker-primero:docker-primero "$APP_ROOT" \
         ; mkdir -p /share/public \
         ; chmod -R 755 /share/public \
