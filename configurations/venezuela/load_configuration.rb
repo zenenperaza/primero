@@ -46,16 +46,24 @@ SystemSettings.current.update!(
   }
 )
 
-puts 'Enabling Tracing Request media uploads'
-media_section = FormSection.find_by!(unique_id: 'tracing_request_photos_and_audio')
-media_fields = media_section.fields.map do |field|
-  if %w[photos recorded_audio].include?(field['name'])
-    field['editable'] = true
-    field['disabled'] = false
+puts 'Enabling Case and Tracing Request attachments'
+editable_attachment_sections = {
+  'photos_and_audio' => %w[photos recorded_audio],
+  'tracing_request_photos_and_audio' => %w[photos recorded_audio],
+  'other_documents' => %w[other_documents]
+}
+
+editable_attachment_sections.each do |section_id, field_names|
+  media_section = FormSection.find_by!(unique_id: section_id)
+  media_fields = media_section.fields.map do |field|
+    if field_names.include?(field['name'])
+      field['editable'] = true
+      field['disabled'] = false
+    end
+    field
   end
-  field
+  media_section.update!(editable: true, fields: media_fields)
 end
-media_section.update!(editable: true, fields: media_fields)
 
 puts 'Assigning missing CP form groups'
 FormSection.where(unique_id: 'cp_other_reportable_fields').update_all(form_group_id: 'other_reportable_fields')

@@ -253,6 +253,19 @@ describe("<RecordForms /> - utils", () => {
     });
   });
 
+  describe("getRecordDisplayId", () => {
+    it("prefers the case display id", () => {
+      const record = fromJS({ case_id_display: "6c41b51", short_id: "short-id" });
+
+      expect(utils.getRecordDisplayId(record, "fallback-id")).toBe("6c41b51");
+    });
+
+    it("falls back to the short id and then the supplied id", () => {
+      expect(utils.getRecordDisplayId(fromJS({ short_id: "short-id" }), "fallback-id")).toBe("short-id");
+      expect(utils.getRecordDisplayId(fromJS({}), "fallback-id")).toBe("fallback-id");
+    });
+  });
+
   describe("constructInitialValues", () => {
     beforeEach(() => {
       const today = parseISO("2010-01-05T18:30:00Z");

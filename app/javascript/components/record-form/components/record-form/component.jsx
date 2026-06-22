@@ -29,7 +29,7 @@ import { clearDataProtectionInitialValues, clearValidationErrors, setPreviousRec
 import Nav from "../../nav";
 import { RecordForm, RecordFormToolbar } from "../../form";
 import css from "../../styles.css";
-import { compactBlank, compactReadOnlyFields, compactValues, getRedirectPath } from "../../utils";
+import { compactBlank, compactReadOnlyFields, compactValues, getRecordDisplayId, getRedirectPath } from "../../utils";
 import externalForms from "../external-forms";
 import { getIsIdentifiedUser } from "../../../user";
 import { READ_RECORDS, REFER_FROM_SERVICE, usePermissions } from "../../../permissions";
@@ -129,7 +129,7 @@ function Component({
         const message = () => {
           return containerMode.isEdit
             ? i18n.t(`${recordType}.messages.update_success`, {
-                record_id: record.get("short_id")
+                record_id: getRecordDisplayId(record, params.id)
               })
             : i18n.t(`${recordType}.messages.creation_success`, recordType);
         };

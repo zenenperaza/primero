@@ -233,6 +233,9 @@ export const getRedirectPath = ({ mode, params, fetchFromCaseId, redirectTo }) =
   return mode.isNew ? "" : `/${params.recordType}/${params.id}`;
 };
 
+export const getRecordDisplayId = (record, fallback) =>
+  record?.get("case_id_display") || record?.get("short_id") || fallback;
+
 export const sortSubformValues = (record, formMap) => {
   const [...forms] = formMap;
   const subformsWithConfiguration = forms.reduce((acc, curr) => {
