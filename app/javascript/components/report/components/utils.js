@@ -6,6 +6,8 @@ const hasMergedRows = () => [...document.querySelectorAll("tr td").entries()].so
 
 const escapeCsvText = text => `"${text.replace(/"/g, '""')}"`;
 
+const UTF8_BOM = "\uFEFF";
+
 const buildHeaders = (headers, mergedRows = false) => {
   const headerRows = mergedRows ? [""] : [];
 
@@ -25,6 +27,8 @@ const buildHeaders = (headers, mergedRows = false) => {
 };
 
 export { escapeCsvText };
+
+export const csvToBlob = csv => new Blob([UTF8_BOM, csv], { type: "text/csv;charset=utf-8" });
 
 export const tableToCsv = tableSelector => {
   const tableData = [];

@@ -7,12 +7,12 @@ import ActionButton from "../../action-button";
 import { ACTION_BUTTON_TYPES } from "../../action-button/constants";
 
 import css from "./styles.css";
-import { downloadFile, tableToCsv } from "./utils";
+import { csvToBlob, downloadFile, tableToCsv } from "./utils";
 import { DEFAULT_FILE_NAME, NAME } from "./constants";
 
 function Exporter({ includesGraph = false }) {
   const handleClickTableExporter = () => {
-    const csvBlob = new Blob([tableToCsv("table tr")], { type: "text/csv" });
+    const csvBlob = csvToBlob(tableToCsv("table tr"));
 
     downloadFile(csvBlob, `${DEFAULT_FILE_NAME}.csv`);
   };

@@ -14,11 +14,22 @@ describe("components/report/components/utils.js", () => {
       expect(Object.keys(clone)).toHaveLength(0);
     });
 
-    ["escapeCsvText", "downloadFile", "tableToCsv"].forEach(property => {
+    ["csvToBlob", "escapeCsvText", "downloadFile", "tableToCsv"].forEach(property => {
       it(`exports '${property}'`, () => {
         expect(utils).toHaveProperty(property);
         delete clone[property];
       });
+    });
+  });
+
+  describe("csvToBlob", () => {
+    it("adds the UTF-8 BOM for Excel", async () => {
+      const blob = utils.csvToBlob("Explotación sexual,Niño");
+      const bytes = new Uint8Array(await blob.arrayBuffer());
+
+      expect(blob.type).toBe("text/csv;charset=utf-8");
+      expect([...bytes.slice(0, 3)]).toEqual([0xef, 0xbb, 0xbf]);
+      expect(new TextDecoder().decode(bytes.slice(3))).toBe("Explotación sexual,Niño");
     });
   });
 
