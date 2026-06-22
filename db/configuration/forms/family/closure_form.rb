@@ -26,6 +26,17 @@ closure_fields = [
               { id: 'no_further_action', display_text: 'No further action possible/required' },
               { id: 'case_opened_error', display_text: 'Case opened in error' },
               { id: 'other', display_text: 'Other' }
+            ],
+            option_strings_text_es: [
+              { id: 'overall_goals_met', display_text: 'Se alcanzaron los objetivos generales de la familia' },
+              { id: 'moving_different_location', display_text: 'La familia se muda a otra ubicación' },
+              {
+                id: 'cannot_be_contacted',
+                display_text: 'No se puede contactar a la familia (espere al menos 3 meses antes de cerrar el caso)'
+              },
+              { id: 'no_further_action', display_text: 'No es posible o necesaria ninguna otra acción' },
+              { id: 'case_opened_error', display_text: 'El caso se abrió por error' },
+              { id: 'other', display_text: 'Otro' }
             ].map(&:with_indifferent_access)),
   Field.new(name: 'closure_reason_other',
             type: 'text_field',
