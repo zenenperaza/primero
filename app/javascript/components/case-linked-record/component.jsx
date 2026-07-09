@@ -82,7 +82,17 @@ function Component({
   const title = caseLinkedForm.getIn(["name", i18n.locale], null);
   const formName = caseLinkedForm.i18nName ? i18n.t(title) : title;
 
-  const fields = useMemoizedSelector(state =>
+  const linkedRecordForm = useMemoizedSelector(state =>
+    getRecordFormsByUniqueId(state, {
+      checkVisible: false,
+      formName: linkedRecordFormUniqueId,
+      primeroModule,
+      recordType: linkedRecordType,
+      getFirst: true
+    })
+  );
+
+  const recordFields = useMemoizedSelector(state =>
     getRecordFieldsByName(state, {
       name: searchFieldNames,
       recordType: linkedRecordType,
@@ -92,6 +102,7 @@ function Component({
       checkVisible: false
     })
   );
+  const fields = linkedRecordForm?.fields?.filter(field => searchFieldNames.includes(field.name)) || recordFields;
 
   const handleCancel = () => {
     setDrawerOpen(false);
