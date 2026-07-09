@@ -90,3 +90,20 @@ configuration_translation_export*
 /ansible/inventory/inventory.yml
 /ansible/roles/application-primero/files/local.env
 /ansible/secrets.yml
+
+# Local deployment and VPS backup artifacts
+/backups/
+/backup/
+/respaldos/
+/paquete-*.zip
+/*.zip
+/*.sql
+/db_*.sql
+/dump*.sql
+/backup*.sql
+/respaldo*.sql
+docs/*VPS*.env
+docs/*vps*.env
+docs/*-vps.env
+docker/docker/*.env
+docker/*.local.env

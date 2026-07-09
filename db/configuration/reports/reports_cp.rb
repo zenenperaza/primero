@@ -132,7 +132,7 @@ Report.create({
                 description_es: 'Casos desglosados por estado actual del flujo de trabajo',
                 module_id: PrimeroModule::CP,
                 record_type: 'case',
-                aggregate_by: ['workflow_status'],
+                aggregate_by: ['workflow'],
                 group_ages: true,
                 filters: default_case_filters,
                 is_graph: true,

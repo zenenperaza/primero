@@ -286,6 +286,7 @@ en:
       remove this family member from the family record, or unlink the family member's case from the Family Record.
     workflow:
       assessment: Assessment
+      care_plan: Care Plan
       case_plan: Case Plan
       closed: Closed
       created_on: created on

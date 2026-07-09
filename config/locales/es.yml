@@ -263,6 +263,7 @@ es:
     family_linked_subform_delete_disabled: Este sub formulario está enlazado a un Registro Familiar. Por favor, remueva a este miembro de la familia del Registro Familiar, o desvincule el Caso del familiar del Registro Familiar.
     workflow:
       assessment: Evaluación
+      care_plan: Plan de cuidado
       case_plan: Plan del Caso
       closed: Cerrado
       created_on: creado el

@@ -751,14 +751,25 @@ Lookup.create_or_update!(
 Lookup.create_or_update!(
   unique_id: 'lookup-workflow',
   name_en: 'Workflow',
+  name_es: 'Flujo de trabajo',
   locked: true,
   lookup_values_en: [
     { id: 'new', display_text: 'New case' }.with_indifferent_access,
     { id: 'closed', display_text: 'Case closed' }.with_indifferent_access,
     { id: 'reopened', display_text: 'Case reopened' }.with_indifferent_access,
+    { id: 'care_plan', display_text: 'Care Plan' }.with_indifferent_access,
     { id: 'service_provision', display_text: 'Service provision' }.with_indifferent_access,
     { id: 'services_implemented', display_text: 'All response services implemented' }.with_indifferent_access,
     { id: 'case_plan', display_text: 'Case Plan' }.with_indifferent_access
+  ],
+  lookup_values_es: [
+    { id: 'new', display_text: 'Caso nuevo' }.with_indifferent_access,
+    { id: 'closed', display_text: 'Caso cerrado' }.with_indifferent_access,
+    { id: 'reopened', display_text: 'Caso reabierto' }.with_indifferent_access,
+    { id: 'care_plan', display_text: 'Plan de cuidado' }.with_indifferent_access,
+    { id: 'service_provision', display_text: 'Prestación de servicios' }.with_indifferent_access,
+    { id: 'services_implemented', display_text: 'Todos los servicios de respuesta implementados' }.with_indifferent_access,
+    { id: 'case_plan', display_text: 'Plan del caso' }.with_indifferent_access
   ]
 )
 
