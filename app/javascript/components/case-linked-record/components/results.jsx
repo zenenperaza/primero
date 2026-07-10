@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 import { useMemoizedSelector } from "../../../libs";
+import displayNameHelper from "../../../libs/display-name-helper";
+import { useI18n } from "../../i18n";
 import ActionButton, { ACTION_BUTTON_TYPES } from "../../action-button";
 import IndexTable, { getRecords, getLoading } from "../../index-table";
 import LoadingIndicator from "../../loading-indicator";
@@ -31,6 +33,7 @@ function Component({
   setDetailsID,
   setShouldSelect
 }) {
+  const i18n = useI18n();
   const dispatch = useDispatch();
   const metadata = useMemoizedSelector(state => getMetadata(state, RECORD_TYPES_PLURAL[linkedRecordType]));
   const isLoading = useMemoizedSelector(state => getLoading(state));
@@ -73,7 +76,7 @@ function Component({
       { name: "short_id", label: "id", id: true },
       ...fields.valueSeq().map(field => ({
         name: field.name,
-        label: field.display_name[locale]
+        label: displayNameHelper(field.display_name, locale) || i18n.t(`fields.${field.name}`) || field.name
       }))
     ],
     title: "",

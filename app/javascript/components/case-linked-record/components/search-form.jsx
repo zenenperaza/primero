@@ -5,8 +5,18 @@ import PropTypes from "prop-types";
 
 import Form, { FieldRecord, FormSectionRecord, SELECT_FIELD } from "../../form";
 import { useI18n } from "../../i18n";
+import displayNameHelper from "../../../libs/display-name-helper";
 import { FORM_ID, REGISTRY_LOCATION_CURRENT, SEARCH_BY } from "../constants";
 import { buildSearchParams, buildValidation } from "../utils";
+
+export const getSearchByOptions = (fields, locale, i18n) =>
+  fields
+    .filter(field => field.name !== REGISTRY_LOCATION_CURRENT)
+    .map(field => ({
+      id: field.name,
+      display_text:
+        displayNameHelper(field.display_name, locale) || i18n.t(`fields.${field.name}`) || field.name
+    }));
 
 function Component({
   fields,
@@ -39,9 +49,7 @@ function Component({
     display_name: i18n.t("case.search_by"),
     name: SEARCH_BY,
     type: SELECT_FIELD,
-    option_strings_text: fields
-      .filter(field => field.name !== REGISTRY_LOCATION_CURRENT)
-      .map(field => ({ id: field.name, display_text: field.display_name[locale] }))
+    option_strings_text: getSearchByOptions(fields, locale, i18n)
   });
 
   const formFields = [
