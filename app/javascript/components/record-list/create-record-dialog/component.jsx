@@ -1,11 +1,11 @@
 // Copyright (c) 2014 - 2023 UNICEF. All rights reserved.
 
-import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from "@mui/material";
+import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Tab, Tabs } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 import { push } from "connected-react-router";
 import PropTypes from "prop-types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { batch, useDispatch } from "react-redux";
 
@@ -20,16 +20,20 @@ import { applyFilters } from "../../index-filters";
 import { getRecordsData } from "../../index-table";
 import { enqueueSnackbar } from "../../notifier";
 import { SEARCH_OR_CREATE_FILTERS } from "../constants";
-import SearchNameToggle from "../../index-filters/components/search-name-toggle";
 import PhoneticHelpText from "../../index-filters/components/phonetic-help-text";
 import { searchTitleI18nKey } from "../../index-filters/components/search-box/utils";
 import SearchButton from "../../record-creation-flow/components/search-button";
 import { setRedirectedToCreateNewRecord } from "../../record-form/action-creators";
-import useSystemStrings, { PAGE } from "../../application/use-system-strings";
 
 import { FORM_ID, NAME, PHONETIC_FIELD_NAME } from "./constants";
 import { searchForm } from "./forms";
 import css from "./styles.css";
+
+const SEARCH_TABS = {
+  id: "id",
+  name: "name",
+  phone: "phone"
+};
 
 function Component({ moduleUniqueId, open = false, recordType, setOpen }) {
   const formMode = whichFormMode(FORM_MODE_NEW);
@@ -47,7 +51,7 @@ function Component({ moduleUniqueId, open = false, recordType, setOpen }) {
     register
   } = methods;
 
-  const { label } = useSystemStrings(PAGE);
+  const [selectedSearchTab, setSelectedSearchTab] = useState(SEARCH_TABS.id);
   const phonetic = useWatch({ control, name: PHONETIC_FIELD_NAME, defaultValue: false });
   const record = useMemoizedSelector(state => getRecordsData(state, recordType));
   const searchTitle = i18n.t(searchTitleI18nKey(phonetic));
@@ -87,8 +91,9 @@ function Component({ moduleUniqueId, open = false, recordType, setOpen }) {
     });
   };
 
-  const handleSwitchChange = event => {
-    setValue(PHONETIC_FIELD_NAME, event.target.checked, { shouldDirty: true });
+  const handleSearchTabChange = (_event, value) => {
+    setSelectedSearchTab(value);
+    setValue(PHONETIC_FIELD_NAME, value === SEARCH_TABS.name, { shouldDirty: true });
   };
 
   useEffect(() => {
@@ -113,15 +118,16 @@ function Component({ moduleUniqueId, open = false, recordType, setOpen }) {
 
   useEffect(() => {
     if (open) {
+      setSelectedSearchTab(SEARCH_TABS.id);
       setValue(PHONETIC_FIELD_NAME, false);
     }
   }, [open]);
 
   return (
-    <Dialog open={open} maxWidth="sm" fullWidth data-testid="CreateRecordDialog">
+    <Dialog open={open} maxWidth="md" fullWidth data-testid="CreateRecordDialog">
       <DialogTitle>
         <div className={css.title}>
-          <div className={css.newCase}>{label("cases.register_new_case")}</div>
+          <div className={css.newCase}>{i18n.t("case.create_new_case")}</div>
           <div className={css.close}>
             <IconButton size="large" onClick={handleClose}>
               <CloseIcon />
@@ -130,7 +136,16 @@ function Component({ moduleUniqueId, open = false, recordType, setOpen }) {
         </div>
       </DialogTitle>
       <DialogContent>
+        <p className={css.helper}>{searchHelpText}</p>
         <form id={FORM_ID} onSubmit={handleSubmit(onSubmit)} className={css.searchForm}>
+          <div className={css.tabsRow}>
+            <span className={css.searchBy}>{i18n.t("case.search_by")}</span>
+            <Tabs value={selectedSearchTab} onChange={handleSearchTabChange} className={css.tabs}>
+              <Tab value={SEARCH_TABS.id} label="ID Fields" />
+              <Tab value={SEARCH_TABS.name} label="Name Fields" />
+              <Tab value={SEARCH_TABS.phone} label="Phone No." />
+            </Tabs>
+          </div>
           {searchForm(searchTitle, searchHelpText).map(formSection => (
             <FormSection
               formSection={formSection}
@@ -140,9 +155,6 @@ function Component({ moduleUniqueId, open = false, recordType, setOpen }) {
             />
           ))}
           <div className={css.search}>
-            <div>
-              <SearchNameToggle handleChange={handleSwitchChange} value={phonetic} />
-            </div>
             <div className={css.searchButton}>
               <SearchButton formId={FORM_ID} />
             </div>
@@ -155,7 +167,7 @@ function Component({ moduleUniqueId, open = false, recordType, setOpen }) {
           <div className={css.createNewCase}>
             <ActionButton
               icon={<AddIcon />}
-              text="case.create_new_case"
+              text="case.skip_and_create"
               type={ACTION_BUTTON_TYPES.default}
               rest={{ onClick: handleCreateNewCase }}
               size="large"

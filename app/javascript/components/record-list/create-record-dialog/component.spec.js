@@ -27,7 +27,7 @@ describe("<CreateRecordDialog /> record-list/create-record-dialog", () => {
   it("redirects to new case if create new case is clicked", () => {
     const { history } = mountedComponent(<CreateRecordDialog {...props} />, state);
 
-    fireEvent.click(screen.getByText(/case.create_new_case/i).closest("button"));
+    fireEvent.click(screen.getByText(/case.skip_and_create/i).closest("button"));
     expect(history.location.pathname).toBe("/cases/testmodule-1/new");
   });
 });
