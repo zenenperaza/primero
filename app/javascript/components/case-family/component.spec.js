@@ -2,7 +2,13 @@
 
 import { mountedComponent, screen } from "test-utils";
 
+import CaseLinkedRecord from "../case-linked-record";
 import CaseFamily from "./component";
+
+jest.mock("../case-linked-record", () => ({
+  __esModule: true,
+  default: jest.fn(() => null)
+}));
 
 describe("<CaseFamily />", () => {
   const props = {
@@ -15,6 +21,10 @@ describe("<CaseFamily />", () => {
     setFieldValue: () => {},
     record: {}
   };
+
+  beforeEach(() => {
+    CaseLinkedRecord.mockClear();
+  });
 
   it("renders an empty subform", async () => {
     const initialState = {
@@ -64,5 +74,22 @@ describe("<CaseFamily />", () => {
     expect(familyDisplayId).toBeInTheDocument();
     expect(familyNumber).toBeInTheDocument();
     expect(familyName).toBeInTheDocument();
+  });
+
+  it("includes family size as a searchable field for family lookup", () => {
+    const initialState = {
+      forms: { formSections: {} },
+      records: { families: { data: [] } },
+      user: {
+        permissions: { cases: ["link_family_record"] }
+      }
+    };
+
+    mountedComponent(<CaseFamily {...props} />, initialState);
+
+    const propsPassed = CaseLinkedRecord.mock.calls[CaseLinkedRecord.mock.calls.length - 1][0];
+
+    expect(propsPassed.searchFieldNames).toEqual(expect.arrayContaining(["family_size"]));
+    expect(propsPassed.validatedFieldNames).toEqual(expect.arrayContaining(["family_size"]));
   });
 });
