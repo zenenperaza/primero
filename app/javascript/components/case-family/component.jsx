@@ -13,7 +13,7 @@ import { LINK_FAMILY_RECORD_FROM_CASE, VIEW_FAMILY_RECORD_FROM_CASE, RESOURCES, 
 import CaseLinkedRecord from "../case-linked-record";
 import { fetchRecord, getLoadingRecordState, selectRecord } from "../records";
 
-import { FAMILY_ID, FAMILY_ID_DISPLAY, FAMILY_NAME, FAMILY_NUMBER, FAMILY_OVERVIEW, FAMILY_SIZE } from "./constants";
+import { FAMILY_ID, FAMILY_ID_DISPLAY, FAMILY_NAME, FAMILY_NUMBER, FAMILY_OVERVIEW } from "./constants";
 
 function Component({ handleToggleNav, mobileDisplay, mode, primeroModule, recordType, setFieldValue, values }) {
   const i18n = useI18n();
@@ -56,8 +56,8 @@ function Component({ handleToggleNav, mobileDisplay, mode, primeroModule, record
       caseFormUniqueId={FAMILY_FROM_CASE}
       linkedRecordFormUniqueId={FAMILY_OVERVIEW}
       headerFieldNames={[FAMILY_ID_DISPLAY, FAMILY_NUMBER, FAMILY_NAME]}
-      searchFieldNames={[FAMILY_NUMBER, FAMILY_SIZE, FAMILY_NAME]}
-      validatedFieldNames={[FAMILY_NUMBER, FAMILY_SIZE, FAMILY_NAME]}
+      searchFieldNames={[FAMILY_NUMBER, FAMILY_NAME]}
+      validatedFieldNames={[FAMILY_NUMBER, FAMILY_NAME]}
       showHeader={viewFamilyRecord || linkFamilyRecord}
       addNewProps={{ show: linkFamilyRecord && !familyId && !mode.isShow }}
       showSelectButton={linkFamilyRecord && !mode.isShow}

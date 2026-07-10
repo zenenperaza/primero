@@ -76,7 +76,7 @@ describe("<CaseFamily />", () => {
     expect(familyName).toBeInTheDocument();
   });
 
-  it("includes family size as a searchable field for family lookup", () => {
+  it("uses family number and family name as searchable fields for family lookup", () => {
     const initialState = {
       forms: { formSections: {} },
       records: { families: { data: [] } },
@@ -89,7 +89,7 @@ describe("<CaseFamily />", () => {
 
     const propsPassed = CaseLinkedRecord.mock.calls[CaseLinkedRecord.mock.calls.length - 1][0];
 
-    expect(propsPassed.searchFieldNames).toEqual(expect.arrayContaining(["family_size"]));
-    expect(propsPassed.validatedFieldNames).toEqual(expect.arrayContaining(["family_size"]));
+    expect(propsPassed.searchFieldNames).toEqual(["family_number", "family_name"]);
+    expect(propsPassed.validatedFieldNames).toEqual(["family_number", "family_name"]);
   });
 });
