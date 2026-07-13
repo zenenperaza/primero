@@ -262,7 +262,7 @@ es:
       search_by: Buscar por
       id_fields: Campos de ID
       name_fields: Campos de nombre
-      phone_number: Nro. de teléfono
+      phone_number: Teléfono
     consent_agreements: Selecciones todos los acuerdos de consentimiento que apliquen
     legitimate_basis: Seleccione todas las clasificaciones base permitidas que apliquen
     family_linked_subform_delete_disabled: Este sub formulario está enlazado a un Registro Familiar. Por favor, remueva a este miembro de la familia del Registro Familiar, o desvincule el Caso del familiar del Registro Familiar.
@@ -2490,7 +2490,7 @@ es:
     search: Buscar
     phonetic_search:
       title: Escriba un nombre para buscar un registro existente
-      label: Use Campos de Nombre
+      label: Usar campos de nombre
       help_text: La búsqueda fonética está disponible para campos de Nombre
     id_search:
       title: Ingrese el número de ID para buscar un registro existente.
