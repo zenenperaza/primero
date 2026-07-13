@@ -2488,10 +2488,16 @@ es:
     reports: Reportes
     insights: Perspectiva
     search: Buscar
+    search_by: Buscar por
+    search_options:
+      id_search: Campos de ID
+      phonetic: Campos de nombre
+      phone_number: Teléfono
     phonetic_search:
       title: Escriba un nombre para buscar un registro existente
       label: Usar campos de nombre
       help_text: La búsqueda fonética está disponible para campos de Nombre
+      tooltip_label: 'La búsqueda fonética está disponible para los siguientes campos de nombre:'
     id_search:
       title: Ingrese el número de ID para buscar un registro existente.
       help_text: La búsqueda exacta está disponible para campos de ID
