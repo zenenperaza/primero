@@ -139,11 +139,11 @@ function Component({ moduleUniqueId, open = false, recordType, setOpen }) {
         <p className={css.helper}>{searchHelpText}</p>
         <form id={FORM_ID} onSubmit={handleSubmit(onSubmit)} className={css.searchForm}>
           <div className={css.tabsRow}>
-            <span className={css.searchBy}>{i18n.t("case.search_by")}</span>
+            <span className={css.searchBy}>{i18n.t("case.search_tabs.search_by")}</span>
             <Tabs value={selectedSearchTab} onChange={handleSearchTabChange} className={css.tabs}>
-              <Tab value={SEARCH_TABS.id} label="ID Fields" />
-              <Tab value={SEARCH_TABS.name} label="Name Fields" />
-              <Tab value={SEARCH_TABS.phone} label="Phone No." />
+              <Tab value={SEARCH_TABS.id} label={i18n.t("case.search_tabs.id_fields")} />
+              <Tab value={SEARCH_TABS.name} label={i18n.t("case.search_tabs.name_fields")} />
+              <Tab value={SEARCH_TABS.phone} label={i18n.t("case.search_tabs.phone_number")} />
             </Tabs>
           </div>
           {searchForm(searchTitle, searchHelpText).map(formSection => (
