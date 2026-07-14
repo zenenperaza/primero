@@ -254,6 +254,11 @@ es-GT:
     save_text: Antes de continuar, por favor guarde los cambios hechos al Caso
     skip_and_create: Crear Nuevo Caso
     search_existing: Buscar casos existentes
+    search_tabs:
+      search_by: Buscar por
+      id_fields: Campos de ID
+      name_fields: Campos de nombre
+      phone_number: Teléfono
     search_helper_text: ¿Para qué? Para evitar la creación de casos duplicados.
     consent_agreements: Selecciones todos los acuerdos de consentimiento que apliquen
     legitimate_basis: Seleccione todas las clasificaciones base permitidas que apliquen
