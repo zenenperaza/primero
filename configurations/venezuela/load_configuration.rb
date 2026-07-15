@@ -82,13 +82,13 @@ other_reportable_fields_group['display_text']['en'] = 'Other Reportable Fields'
 other_reportable_fields_group['display_text']['es'] = 'Otros campos de reporte'
 incident_form_group_lookup.update!(lookup_values_i18n: incident_form_group_values)
 
-puts 'Loading Venezuela states and municipalities'
+puts 'Loading Venezuela states, municipalities and parishes'
 system_settings = SystemSettings.current
 system_settings.update!(
   reporting_location_config: {
     field_key: 'owned_by_location',
     admin_level: 1,
-    admin_level_map: { '1' => ['state'], '2' => ['municipality'] }
+    admin_level_map: { '1' => ['state'], '2' => ['municipality'], '3' => ['parish'] }
   }
 )
 

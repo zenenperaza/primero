@@ -820,6 +820,8 @@ update_lookup_es(
       'governorate' => 'Gobernación',
       'chiefdom' => 'Jefatura',
       'state' => 'Estado',
+      'municipality' => 'Municipio',
+      'parish' => 'Parroquia',
       'city' => 'Ciudad',
       'county' => 'Condado',
       'camp' => 'Campamento',
